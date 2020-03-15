@@ -1,0 +1,52 @@
+[{  
+    "sys_id":"1",
+    "name": "IT",
+    "items":[
+        {
+        "sys_id": "1.1",
+        "name":"service IT",
+        "description": "service IT description"
+        },
+        {
+            "sys_id": "1.2",
+            "name":"incident IT",
+            "description": "incident IT description"
+        }
+            
+    ]
+  },
+  {  
+    "sys_id":"2",
+    "name": "פאסיבי",
+    "items":[
+        {
+        "sys_id": "2.1",
+        "name":"התקנת יחידת קירור",
+        "description": "התקנת יחידת קירור תיאור"
+        },
+        {
+            "sys_id": "2.2",
+            "name":"התקנת תוכנה בשרתים",
+            "description": "התקנת תוכנה בשרתים תיאור"
+        }
+            
+    ]
+  },
+  {  
+    "sys_id":"3",
+    "name": "מבנה",
+    "items":[
+        {
+        "sys_id": "3.1",
+        "name":"תקלות אחזקת מבנה",
+        "description": "תקלות אחזקת מבנה תיאור"
+        },
+        {
+            "sys_id": "3.2",
+            "name":"תקלות אחזקת מבנה 2",
+            "description": "תקלות אחזקת מבנה 2 תיאור"
+        }
+            
+    ]
+  }]
+  
