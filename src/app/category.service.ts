@@ -6,10 +6,19 @@ import data from "./categories.json";
 })
 export class CategoryService {
   mockDate = data;
+  ItemsOfCategoryClicked: any;
   constructor() {
    }
 
   getCategories(){
     return this.mockDate;
   }
+  onCategoryClick(category:any){
+    console.log(category);
+    this.ItemsOfCategoryClicked = category;
+  }
+  getItemsOfCategory(){
+    return this.ItemsOfCategoryClicked;
+  }
+  
 }
