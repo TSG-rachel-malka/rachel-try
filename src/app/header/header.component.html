@@ -9,7 +9,8 @@
       </li>
       <li>
           <a mat-button routerLink="/myRequest" routerLinkActive="mat-accent">
-            <span matBadge="{{requestCounter}}" matBadgeOverlap="false" matBadgeColor="accent">my Requests</span></a>
+            <span *ngIf="requestCounter==0">my Requests</span>
+            <span *ngIf="requestCounter>0" matBadge="{{requestCounter}}" matBadgeOverlap="false" matBadgeColor="accent">my Requests</span></a>
         </li>
     </ul>
   </mat-toolbar>
