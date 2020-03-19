@@ -21,7 +21,7 @@ export class ItemComponent implements OnInit {
   }  
   onSubmit(value){
     this.categoryService.onSubmitItem(value);
-    this.categoryService.requestCount().subscribe();
+    this.categoryService.requestCount();
     this.router.navigate(["itemCategory/item/requestDetail"]);
 
   }
