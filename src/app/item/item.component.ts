@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-item',
@@ -19,8 +20,11 @@ export class ItemComponent implements OnInit {
   onCancelClick(){
     this.router.navigate(["itemCategory"]);
   }  
-  onSubmit(value){
-    this.categoryService.onSubmitItem(value);
+  onSubmit(form: NgForm){
+    debugger;
+    if(form.invalid)
+      return;
+    this.categoryService.onSubmitItem(form.value);
     this.categoryService.requestCount();
     this.router.navigate(["itemCategory/item/requestDetail"]);
   }

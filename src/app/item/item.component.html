@@ -1,10 +1,11 @@
 
 <div *ngIf="item" class="example-container">
-     <form #ItemForm="ngForm" (submit)="onSubmit(ItemForm.value)">
+     <form #ItemForm="ngForm" (submit)="onSubmit(ItemForm)">
         <div *ngFor="let item of item.fields" >
             <mat-form-field appearance="fill" >
                 <mat-label>{{item.name}}</mat-label>
-                <input name="{{item.name}}" ngModel="" matInput type="{{item.type}}">
+                <input #name="ngModel" required name="{{item.name}}" ngModel="" matInput type="{{item.type}}">
+                <mat-error *ngIf="name.errors.required">{{item.name}} is required.</mat-error>
             </mat-form-field>
             <br>
         </div>
