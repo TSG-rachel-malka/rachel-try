@@ -11,6 +11,7 @@ export class ItemComponent implements OnInit {
   item;
   constructor(private categoryService : CategoryService, private router:Router) { 
     this.item = this.categoryService.getItem();
+    console.log(this.item);
   }
 
   ngOnInit() {
