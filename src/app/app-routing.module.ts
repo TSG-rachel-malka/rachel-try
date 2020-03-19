@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { ItemCategoryComponent } from './itemsCategory/itemsCategory.component';
+// import { CategoryComponent } from './category/category.component';
+import { HomePageComponent } from './homePage/homePage.component';
 import { ItemComponent } from './item/item.component';
-import { CategoryComponent } from './category/category.component';
+import { MyRequestComponent } from './my-request/my-request.component';
+import { RequestDelailsComponent } from './request-delails/request-delails.component';
 
 
 const routes: Routes = [
-  { path: '', component: CategoryComponent },
-  { path: 'items', component: ItemComponent },
+  { path: '', component: HomePageComponent},
+  { path: 'itemCategory', component: ItemCategoryComponent },
+  { path: 'itemCategory/item' , component: ItemComponent },
+  { path: 'myRequest', component: MyRequestComponent },
+  { path: 'itemCategory/item/requestDetail' , component: RequestDelailsComponent }
 ];
 
 @NgModule({

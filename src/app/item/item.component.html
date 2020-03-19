@@ -1,5 +1,18 @@
 
-<mat-card *ngFor="let item of itemsOfCategory.items">
-    <mat-card-title>{{item.name}}</mat-card-title>
-    <mat-card-content>{{item.description}}</mat-card-content>
-</mat-card>
+<div *ngIf="item" class="example-container">
+     <form #ItemForm="ngForm" (submit)="onSubmit(ItemForm.value)">
+        <div *ngFor="let item of item.fields" >
+            <mat-form-field appearance="fill" >
+                <mat-label>{{item.name}}</mat-label>
+                <input name="{{item.name}}" ngModel="" matInput type="{{item.type}}">
+            </mat-form-field>
+            <br>
+        </div>
+        <button type="submit" mat-raised-button color="accent">Submit</button>
+        <button mat-raised-button color="primary" (click)=onCancelClick()>Cancel</button>
+    </form>
+
+</div>
+<div class="example-container" *ngIf="!item">
+    <p>There is no Form to this Item</p>
+</div>

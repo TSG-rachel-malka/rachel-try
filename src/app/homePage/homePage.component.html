@@ -1,0 +1,33 @@
+<div class="row image">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput
+                   placeholder="Search"
+                   aria-label="State"
+                   [matAutocomplete]="auto"
+                   [formControl]="stateCtrl">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+                <span>{{state.name}}</span> |
+                <small>Population: {{state.population}}</small>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+ </div> 
+<div class="row categories">
+    <mat-grid-list cols="{{categories.length}}" >
+            <mat-grid-tile
+                (click)="onCategoryClick(category)" 
+                *ngFor="let category of categories"
+                [colspan]="1"
+                [rowspan]="1">
+                <mat-card>
+                    <img class="img" mat-card-image src="assets/{{category.img}}" alt="">
+                    <mat-card-title color="primary">{{category.name}}</mat-card-title>
+                    <mat-card-content>{{category.description}}</mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>

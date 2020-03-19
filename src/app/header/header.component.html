@@ -1,0 +1,16 @@
+  <mat-toolbar color="primary">
+    <span>
+      <a routerLink="/">Katar</a>
+    </span>
+    <span class="spacer"></span>
+    <ul>
+      <li>
+        <a mat-button routerLink="/itemsCategory" routerLinkActive="mat-accent">categories</a>
+      </li>
+      <li>
+          <a mat-button routerLink="/myRequest" routerLinkActive="mat-accent">
+            <span matBadge="{{requestCounter}}" matBadgeOverlap="false" matBadgeColor="accent">my Requests</span></a>
+        </li>
+    </ul>
+  </mat-toolbar>
+  

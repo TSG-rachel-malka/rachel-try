@@ -1,0 +1,64 @@
+    .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+    }
+    
+    .example-full-width {
+        width: 100%;
+    }
+    .example-option-img {
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+    
+    [dir='rtl'] .example-option-img {
+        margin-right: 0;
+        margin-left: 8px;
+    }
+    .row.image{
+        background-image: url(../../assets/katarheroimage.png);
+        height: 468px;
+        width: 1707px;
+        margin-top: -75px;
+    }
+    .row.categories{
+        width: 65%;
+        padding-left: 17.5%;
+        padding-top: 15px;
+    }
+    main {
+        width: 80%;
+        margin: 1rem auto;
+    }
+    
+    mat-card{
+        padding: 10px;
+        width: 150px;
+        box-shadow: none !important;
+    }
+    .img{
+        width: 100%;
+        padding-left: 13%;
+    }
+    mat-card-title{
+    font-size: 23px;
+        color: #808080d1;
+        font-weight: bold;
+    }
+    mat-card-content{
+        font-size: 13px;
+        color: #808080d1;
+        }
+    mat-card-title, mat-card-content {
+        text-align: center;
+    }
+    mat-form-field{
+        background-color: white;
+    }
+    form{
+        padding-top: 15%;
+        padding-left: 33%;
+    }
+    
+    

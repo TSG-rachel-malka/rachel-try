@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -7,11 +8,22 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  itemsOfCategory:any;
-  constructor(private categoryService : CategoryService) {
-   }
+  item;
+  constructor(private categoryService : CategoryService, private router:Router) { 
+    this.item = this.categoryService.getItem();
+    console.log(this.item);
+  }
 
   ngOnInit() {
-    this.itemsOfCategory = this.categoryService.getItemsOfCategory();
   }
+  onCancelClick(){
+    this.router.navigate(["itemCategory"]);
+  }  
+  onSubmit(value){
+    this.categoryService.onSubmitItem(value);
+    this.categoryService.requestCount();
+    this.router.navigate(["itemCategory/item/requestDetail"]);
+
+  }
+
 }

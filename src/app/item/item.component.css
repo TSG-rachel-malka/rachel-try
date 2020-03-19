@@ -1,0 +1,8 @@
+.example-container{
+    width: 60%;
+    padding-left: 20%;
+    margin-top: 5%;
+}
+button.mat-raised-button.mat-primary{
+    margin-left: 10px;
+}

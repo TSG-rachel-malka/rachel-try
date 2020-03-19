@@ -1,0 +1,52 @@
+[{  
+    "sys_id":"1.1",
+    "name": "service IT",
+    "img":"it.png",
+    "fields":[
+        {
+        "sys_id_field": "1.1.1",
+        "name":"name1",
+        "type": "text"
+        },
+        {
+            "sys_id_field": "1.1.2",
+            "name":"type1",
+            "type": "select"
+        }  
+    ]
+  },
+  {  
+    "sys_id":"1.2",
+    "name": "service IT",
+    "img":"it.png",
+    "fields":[
+        {
+        "sys_id_field": "1.2.1",
+        "name":"name2",
+        "type": "number"
+        },
+        {
+            "sys_id_field": "1.2.2",
+            "name":"type2",
+            "type": "number"
+        }  
+    ]
+  },
+  {  
+    "sys_id":"2.2",
+    "name": "service IT",
+    "img":"it.png",
+    "fields":[
+        {
+        "sys_id_field": "2.2.1",
+        "name":"name22",
+        "type": "text"
+        },
+        {
+            "sys_id_field": "2.2.2",
+            "name":"type22",
+            "type": "select"
+        }  
+    ]
+  }
+]
