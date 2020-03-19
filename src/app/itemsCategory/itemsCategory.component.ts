@@ -18,6 +18,7 @@ export class ItemCategoryComponent implements OnInit {
 
   onItemClick(id){
     this.categoryService.onItemClick(id);
+    console.log("try git");
     this.router.navigate(["/itemCategory/item"]);
   }
 }
