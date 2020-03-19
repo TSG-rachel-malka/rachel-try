@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subscription, Subject } from 'rxjs';
 
 import categoryData from './categories.json';
 import itemData from './item.json';
@@ -12,7 +13,9 @@ export class CategoryService {
   ItemsOfCategoryClicked: any;
   ItemClicked: any;
   ItemSend:any;
-  requestCounter = 0;
+  counter = 0 ;
+  requestCounter: Subject<number> = new Subject<number>(); 
+  //requestCounter = 0;
   constructor() {}
 
   getCategories(){
@@ -38,11 +41,10 @@ export class CategoryService {
     return this.ItemSend;
   }
   requestCount(){
-    debugger;
-    this.requestCounter++;
+    this.counter++;
+    this.requestCounter.next(this.counter);;
   }
   getRequestCounter(){
-    debugger;
     return this.requestCounter;
   }
 }

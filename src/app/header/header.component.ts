@@ -11,7 +11,9 @@ export class HeaderComponent implements OnInit {
   constructor(private categoryService:CategoryService) { }
 
   ngOnInit() {
-    this.requestCounter = this.categoryService.getRequestCounter();
+    this.categoryService.getRequestCounter().subscribe((requestCounter)=> {
+      this.requestCounter = requestCounter;
+    });
     console.log(this.requestCounter);
   }
 

@@ -23,7 +23,6 @@ export class ItemComponent implements OnInit {
     this.categoryService.onSubmitItem(value);
     this.categoryService.requestCount();
     this.router.navigate(["itemCategory/item/requestDetail"]);
-
   }
 
 }
