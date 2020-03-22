@@ -1,50 +1,74 @@
 import { Injectable } from '@angular/core';
-import { Subscription, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
-import categoryData from './categories.json';
-import itemData from './item.json';
+import categoryData from './jsonFiles/categories.json';
+import itemData from './jsonFiles/item.json';
+import requestData from './jsonFiles/request.json';
+import { Request } from './models/request.model'
+import { Category } from './models/category.model';
+import { Item } from './models/item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  mockDateCategory = categoryData;
-  mockDateItem = itemData;
-  ItemsOfCategoryClicked: any;
-  ItemClicked: any;
-  ItemSend:any;
+  statusOptionsRequest = [
+    { id: 0, value:'new'},
+    { id: 1, value:'in progress'},
+    { id: 2, value:'canceled'},
+    { id: 3, value:'closed'}];
+  requestDetail:Request;
+  mockDataCategory = categoryData;
+  mockDataItem = itemData;
+  mockDataRequest = requestData
+  itemsOfCategoryClicked: Category;
+  itemClicked: Item;
   counter = 0 ;
   requestCounter: Subject<number> = new Subject<number>(); 
-  //requestCounter = 0;
+ statusIdRequest : Subject<number> = new Subject<number>(); 
+
   constructor() {}
 
   getCategories(){
-    return this.mockDateCategory;
+    return this.mockDataCategory;
   }
-  onCategoryClick(category:any){
-    this.ItemsOfCategoryClicked = category;
+  onCategoryClick(category:Category){
+    this.itemsOfCategoryClicked = category;
   }
   getItemsOfCategory(){
-    return this.ItemsOfCategoryClicked;
+    return this.itemsOfCategoryClicked;
   }
 
   onItemClick(sys_id){
-    this.ItemClicked = this.mockDateItem.find(item => item.sys_id === sys_id);
+    this.itemClicked = this.mockDataItem.find(item => item.sys_id === sys_id);
   }
   getItem(){
-    return this.ItemClicked;
+    console.log(this.itemClicked);
+    return this.itemClicked;
   }
-  onSubmitItem(value){
-    this.ItemSend = value;
+  onSubmitItem(item:any,value:any){
+    const date = ((new Date()).toLocaleDateString()).toString();
+    this.requestDetail = {user_id: "1", sys_id:item.sys_id, name:item.name, description:item.description, img:item.img ,create:date,status:"new", details: value};
+    requestData.push(this.requestDetail);
   }
   getRequestDetail(){
-    return this.ItemSend;
-  }
+    return this.requestDetail;
+  } 
   requestCount(){
     this.counter++;
     this.requestCounter.next(this.counter);;
   }
   getRequestCounter(){
     return this.requestCounter;
+  }
+  getStatusMyRequest(){
+    const statusOptionsRequest = this.statusOptionsRequest;
+    const myRequestStatus = this.requestDetail.status;
+    const status = statusOptionsRequest.find(status => status.value === myRequestStatus);
+    this.statusIdRequest.next(status.id);
+    return this.statusIdRequest;
+  }
+  getStatusOptionsRequest(){
+    return this.statusOptionsRequest;
   }
 }

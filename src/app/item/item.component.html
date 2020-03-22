@@ -1,6 +1,7 @@
 
 <div *ngIf="item" class="example-container">
      <form #ItemForm="ngForm" (submit)="onSubmit(ItemForm)">
+            <mat-card-title>{{item.name}}</mat-card-title>
         <div *ngFor="let item of item.fields" >
             <mat-form-field appearance="fill" >
                 <mat-label>{{item.name}}</mat-label>
@@ -12,6 +13,7 @@
         <button type="submit" mat-raised-button color="accent">Submit</button>
         <button mat-raised-button color="primary" (click)=onCancelClick()>Cancel</button>
     </form>
+    <img src="assets/{{item.img}}">
 
 </div>
 <div class="example-container" *ngIf="!item">

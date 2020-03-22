@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
+import { CategoryService } from '../../category.service';
 
 @Component({
   selector: 'app-my-request',
@@ -7,11 +7,12 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./my-request.component.css']
 })
 export class MyRequestComponent implements OnInit {
-  requestDetail;
+  requestDetail:any;
   constructor(private categoryServicea:CategoryService) { }
 
   ngOnInit() {
     this.requestDetail = this.categoryServicea.getRequestDetail();
+    console.log(this.requestDetail);
   }
 
 }

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ItemCategoryComponent } from './itemsCategory/itemsCategory.component';
-// import { CategoryComponent } from './category/category.component';
 import { HomePageComponent } from './homePage/homePage.component';
 import { ItemComponent } from './item/item.component';
-import { MyRequestComponent } from './my-request/my-request.component';
-import { RequestDelailsComponent } from './request-delails/request-delails.component';
+import { MyRequestComponent } from './item/my-request/my-request.component';
+import { RequestDelailsComponent } from './item/request-delails/request-delails.component';
 
 
 const routes: Routes = [

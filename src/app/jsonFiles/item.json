@@ -2,6 +2,7 @@
     "sys_id":"1.1",
     "name": "service IT",
     "img":"it.png",
+    "description": "service IT description",
     "fields":[
         {
         "sys_id_field": "1.1.1",
@@ -11,14 +12,15 @@
         {
             "sys_id_field": "1.1.2",
             "name":"type1",
-            "type": "select"
+            "type": "text"
         }  
     ]
   },
   {  
     "sys_id":"1.2",
-    "name": "service IT",
+    "name": "incident IT",
     "img":"it.png",
+    "description": "incident IT description",
     "fields":[
         {
         "sys_id_field": "1.2.1",
@@ -34,8 +36,9 @@
   },
   {  
     "sys_id":"2.2",
-    "name": "service IT",
+    "name": "התקנת תוכנה בשרתים",
     "img":"it.png",
+    "description": "התקנת תוכנה בשרתים description",
     "fields":[
         {
         "sys_id_field": "2.2.1",
@@ -45,7 +48,7 @@
         {
             "sys_id_field": "2.2.2",
             "name":"type22",
-            "type": "select"
+            "type": "text"
         }  
     ]
   }

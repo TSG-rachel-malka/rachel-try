@@ -1,0 +1,44 @@
+[{  
+    "user_id": "456789",
+    "sys_id":"1",
+    "name": "IT",
+    "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
+    "img":"it.png",
+    "create":"12/02/10",
+    "status":"create",
+    "details": []
+  },
+  {  
+    "user_id": "456789",
+    "sys_id":"2",
+    "name": "פאסיבי",
+    "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
+    "img":"Almak.png",
+    "create":"12/02/10",
+    "status":"create",
+    "details": []
+
+  },
+  {  
+    "user_id": "456789",
+    "sys_id":"3",
+    "name": "מבנה",
+    "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
+    "img":"mivne.png",
+    "create":"12/02/10",
+    "status":"create",
+    "details": []
+
+  },
+  {  
+    "user_id": "456789",
+    "sys_id":"4",
+    "name": "מחשוב",
+    "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
+    "img":"michshuv.png",
+    "create":"12/02/10",
+    "status":"create",
+    "details": []
+  }
+]
+  

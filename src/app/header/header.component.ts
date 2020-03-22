@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
     this.categoryService.getRequestCounter().subscribe((requestCounter)=> {
       this.requestCounter = requestCounter;
     });
-    console.log(this.requestCounter);
   }
 
 }

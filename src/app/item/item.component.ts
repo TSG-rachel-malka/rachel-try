@@ -12,7 +12,6 @@ export class ItemComponent implements OnInit {
   item;
   constructor(private categoryService : CategoryService, private router:Router) { 
     this.item = this.categoryService.getItem();
-    console.log(this.item);
   }
 
   ngOnInit() {
@@ -21,10 +20,9 @@ export class ItemComponent implements OnInit {
     this.router.navigate(["itemCategory"]);
   }  
   onSubmit(form: NgForm){
-    debugger;
     if(form.invalid)
       return;
-    this.categoryService.onSubmitItem(form.value);
+    this.categoryService.onSubmitItem(this.item,form.value);
     this.categoryService.requestCount();
     this.router.navigate(["itemCategory/item/requestDetail"]);
   }
