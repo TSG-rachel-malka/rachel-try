@@ -7,12 +7,14 @@
         {
         "sys_id": "1.1",
         "name":"service IT",
-        "description": "service IT description"
+        "description": "service IT description",
+        "img":"it.png"
         },
         {
             "sys_id": "1.2",
             "name":"incident IT",
-            "description": "incident IT description"
+            "description": "incident IT description",
+            "img":"it.png"
         }
             
     ]
@@ -26,12 +28,14 @@
         {
         "sys_id": "2.1",
         "name":"התקנת יחידת קירור",
-        "description": "התקנת יחידת קירור תיאור"
+        "description": "התקנת יחידת קירור תיאור",
+        "img":"Almak.png"
         },
         {
             "sys_id": "2.2",
             "name":"התקנת תוכנה בשרתים",
-            "description": "התקנת תוכנה בשרתים תיאור"
+            "description": "התקנת תוכנה בשרתים תיאור",
+            "img":"Almak.png"
         }
             
     ]
@@ -45,12 +49,14 @@
         {
         "sys_id": "3.1",
         "name":"תקלות אחזקת מבנה",
-        "description": "תקלות אחזקת מבנה תיאור"
+        "description": "תקלות אחזקת מבנה תיאור",
+        "img":"mivne.png"
         },
         {
             "sys_id": "3.2",
             "name":"תקלות אחזקת מבנה 2",
-            "description": "תקלות אחזקת מבנה 2 תיאור"
+            "description": "תקלות אחזקת מבנה 2 תיאור",
+            "img":"mivne.png"
         }
             
     ]
@@ -64,12 +70,14 @@
         {
         "sys_id": "4.1",
         "name":"תקלות מחשוב",
-        "description": "תקלות מחשוב תיאור"
+        "description": "תקלות מחשוב תיאור",
+        "img":"michshuv.png"
         },
         {
             "sys_id": "4.2",
             "name":"תקלות מחשוב 2",
-            "description": "תקלות מחשוב 2 תיאור"
+            "description": "תקלות מחשוב 2 תיאור",
+            "img":"michshuv.png"
         }
             
     ]

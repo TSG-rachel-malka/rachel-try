@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../category.service';
+import { ActivatedRoute } from '@angular/router';
+import { RequestsService } from './requests.service';
 
 @Component({
   selector: 'app-my-request',
@@ -8,11 +10,14 @@ import { CategoryService } from '../../category.service';
 })
 export class MyRequestComponent implements OnInit {
   requestDetail:any;
-  constructor(private categoryServicea:CategoryService) { }
-
+  userId: string;
+  myRequsts;
+  constructor(private categoryServicea:CategoryService, public router: ActivatedRoute, public myRequestsService: RequestsService){}
+  
   ngOnInit() {
-    this.requestDetail = this.categoryServicea.getRequestDetail();
-    console.log(this.requestDetail);
+    /*this.userId = this.router.params['userId'].subscribe();
+   debugger;
+    this.myRequsts = this.myRequestsService.getUserRequests(this.userId).slice();*/
   }
 
 }

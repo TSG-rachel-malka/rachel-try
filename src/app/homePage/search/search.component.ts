@@ -1,69 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../category.service';
-import { Router } from '@angular/router';
-import { startWith, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
 
-export interface State {
-  flag: string;
-  name: string;
-  population: string;
-}
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Category } from 'src/app/models/category.model';
+import { CategoryService } from 'src/app/category.service';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
+export class SearchComponent implements OnInit{
 
-export class SearchComponent {
+  categories: any[];
+  categoryCtrl = new FormControl();
+  filteredItemsCategories: Observable<any[]>;
+  itemsCategories: any[];
+  constructor(private categoryService : CategoryService, private router:Router) {}
 
-  constructor(private categoryService : CategoryService, private router:Router) {
-    this.filteredStates = this.stateCtrl.valueChanges
+  ngOnInit() {
+    this.categories = this.categoryService.getCategories().slice();
+    this.itemsCategories = this.categoryService.getItemsCategories();
+    this.filteredItemsCategories = this.categoryCtrl.valueChanges
     .pipe(
-      startWith(''),
-      map(state => state ? this._filterStates(state) : this.states.slice())
+      map(category => category ? this._filterItems(category) : this.itemsCategories.slice())
     );
-   }
-  states: State[] = [
-    {
-      name: 'Arkansas',
-      population: '2.978M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    },
-    {
-      name: 'California',
-      population: '39.14M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    },
-    {
-      name: 'Florida',
-      population: '20.27M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    },
-    {
-      name: 'Texas',
-      population: '27.47M',
-      // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-      flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    }
-  ];
-  stateCtrl = new FormControl();
-  filteredStates: Observable<State[]>;
-
-
-  private _filterStates(value: string): State[] {
-    const filterValue = value.toLowerCase();
-    return this.states.filter(state => state.name.toLowerCase().indexOf(filterValue) === 0);
   }
+
+  onCategoryClick(category:Category){
+    this.categoryService.onCategoryClick(category);
+    this.router.navigate(['itemCategory']);
+  }
+
+  private _filterItems(value: string): any[]{
+    if(!value){
+       return;
+    }
+    const filterValue = value.toLowerCase();
+    let categoriesId: string[];
+    this.categories.filter(category => category.name.toLowerCase().includes(filterValue));
+    categoriesId = this.categories.map(category => category.sys_id);
+     // || categoriesId.indexOf(item.category_id) > 1
+      return this.itemsCategories.filter(item => item.name.toLowerCase().includes(filterValue)
+    );
+  }
+  
 
 }

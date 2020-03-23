@@ -22,10 +22,11 @@ export class CategoryService {
   mockDataItem = itemData;
   mockDataRequest = requestData
   itemsOfCategoryClicked: Category;
+  itemsCategories:any[] = [];
   itemClicked: Item;
   counter = 0 ;
   requestCounter: Subject<number> = new Subject<number>(); 
- statusIdRequest : Subject<number> = new Subject<number>(); 
+  statusIdRequest : Subject<number> = new Subject<number>(); 
 
   constructor() {}
 
@@ -70,5 +71,19 @@ export class CategoryService {
   }
   getStatusOptionsRequest(){
     return this.statusOptionsRequest;
+  }
+  getItemsCategories() :any[]{
+    this.mockDataCategory.map(category => {
+      if(category.items.length > 0){
+          category.items.map( item =>{
+          this.itemsCategories.push(item);
+          }
+        );
+      }
+    });
+      return this.itemsCategories;
+  }
+  getCategoriesId():string[]{
+    return this.mockDataCategory.map(category => category.sys_id);
   }
 }
