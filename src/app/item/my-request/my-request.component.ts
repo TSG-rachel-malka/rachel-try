@@ -46,7 +46,7 @@ export class MyRequestComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   expandRequest(requestId){
-    this.router.navigate(['requestDetails', requestId]);
+    this.router.navigate(['requestDetail', requestId], {relativeTo: this.route});
   }
 
 }
