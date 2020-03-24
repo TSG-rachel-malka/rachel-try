@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 import categoryData from './jsonFiles/categories.json';
 import itemData from './jsonFiles/item.json';
@@ -17,27 +17,26 @@ export class CategoryService {
     { id: 1, value:'in progress'},
     { id: 2, value:'canceled'},
     { id: 3, value:'closed'}];
+  userId = '456789';
   requestDetail:Request;
   mockDataCategory = categoryData;
   mockDataItem = itemData;
-  mockDataRequest = requestData
+  mockDataRequest = requestData;
   itemsOfCategoryClicked: Category;
   itemsCategories:any[] = [];
   itemClicked: Item;
   counter = 0 ;
-  requestCounter: Subject<number> = new Subject<number>(); 
-  statusIdRequest : Subject<number> = new Subject<number>(); 
+  requestCounter = new Subject<number>(); 
 
   constructor() {}
 
   getCategories(){
     return this.mockDataCategory;
   }
-  onCategoryClick(category:Category){
-    this.itemsOfCategoryClicked = category;
-  }
-  getItemsOfCategory(){
-    return this.itemsOfCategoryClicked;
+
+  getItemsOfCategory(idCategory){
+    this.itemsOfCategoryClicked = this.mockDataCategory.find(category => category.sys_id === idCategory)
+    return this.itemsOfCategoryClicked.items;
   }
 
   onItemClick(sys_id){
@@ -51,25 +50,25 @@ export class CategoryService {
   }
   onSubmitItem(item:any,value:any){
     const date = ((new Date()).toLocaleDateString()).toString();
-    this.requestDetail = {user_id: "1", sys_id:item.sys_id, name:item.name, description:item.description, img:item.img ,create:date,status:"new", details: value};
+    this.requestDetail = {user_id: "1", sys_id:item.sys_id, name:item.name, description:item.description, img:item.img ,create:date,status:"0", details: value};
     requestData.push(this.requestDetail);
   }
-  getRequestDetail(){
-    return this.requestDetail;
+  getRequestDetail(id){
+    return requestData.filter(request => request.sys_id === id)
+
   } 
   requestCount(){
     this.counter++;
-    this.requestCounter.next(this.counter);;
+    this.requestCounter.next(this.counter);
   }
+  getRequestsCounterInit(userId): number {
+    if(userId)
+      this.counter = (requestData.filter(request => request.user_id.toLowerCase().indexOf(userId) === 0)).length;
+    else this.counter = requestData.length;
+    return this.counter;  
+}
   getRequestCounter(){
-    return this.requestCounter;
-  }
-  getStatusMyRequest(){
-    const statusOptionsRequest = this.statusOptionsRequest;
-    const myRequestStatus = this.requestDetail.status;
-    const status = statusOptionsRequest.find(status => status.value === myRequestStatus);
-    this.statusIdRequest.next(status.id);
-    return this.statusIdRequest;
+     return this.requestCounter;
   }
   getStatusOptionsRequest(){
     return this.statusOptionsRequest;

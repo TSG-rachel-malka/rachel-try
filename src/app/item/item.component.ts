@@ -10,10 +10,12 @@ import { NgForm } from '@angular/forms';
 })
 export class ItemComponent implements OnInit {
   item;
+  userId;
   itemId: string;
   constructor(private categoryService : CategoryService, private router:Router, public route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.userId = this.categoryService.userId;
     this.route.params.subscribe(
       (params: Params) => {
         if(params['itemId']){
@@ -27,14 +29,19 @@ export class ItemComponent implements OnInit {
     else this.item = this.categoryService.getItem();
   }
   onCancelClick(){
-    this.router.navigate(["itemCategory"]);
+    this.router.navigate(["items" , this.itemId]);
   }  
   onSubmit(form: NgForm){
     if(form.invalid)
       return;
+    const idRequest = this.itemId;
+    const userId = this.userId;
+    debugger;
+    const route = "myRequests/"+userId+"/requestDetail";
+    console.log(route);
+    this.router.navigate([route, idRequest, userId ]);
     this.categoryService.onSubmitItem(this.item,form.value);
     this.categoryService.requestCount();
-    this.router.navigate(["itemCategory/item/requestDetail"]);
   }
 
 }

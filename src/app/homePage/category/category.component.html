@@ -2,15 +2,20 @@
 <div class="row categories">
     <mat-grid-list cols="{{categories.length}}" >
             <mat-grid-tile
-                (click)="onCategoryClick(category)" 
+                (click)="onCategoryClick(category.sys_id)" 
                 *ngFor="let category of categories"
                 [colspan]="1"
                 [rowspan]="1">
                 <mat-card>
-                    <img class="img" mat-card-image src="assets/{{category.img}}" alt="">
+                    <img class="img" 
+                    mat-card-image src="assets/{{category.img}}" alt="">
                     <mat-card-title color="primary">{{category.name}}</mat-card-title>
                     <mat-card-content>{{category.description}}</mat-card-content>
                 </mat-card>
             </mat-grid-tile>
           </mat-grid-list>
         </div>
+
+
+        <!-- (mouseout)="imgSrc='assets/{{category.img}}'"
+        (mouseover) ="imgSrc ='assets/hooverIcons/H_{{category.img}}'" -->

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,15 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  requestCounter=0;
-  userId = '456789';
-  constructor(private categoryService:CategoryService) { }
+  requestCounter:number = 0 ;
 
+  userId;
+  constructor(private categoryService:CategoryService) {  }
   ngOnInit() {
-    this.categoryService.getRequestCounter().subscribe((requestCounter)=> {
-      this.requestCounter = requestCounter;
+    this.userId = this.categoryService.userId;
+    this.requestCounter = this.categoryService.getRequestsCounterInit(this.userId);
+    this.categoryService.getRequestCounter().subscribe(requestCounter => {
+        this.requestCounter = requestCounter;
     });
   }
 

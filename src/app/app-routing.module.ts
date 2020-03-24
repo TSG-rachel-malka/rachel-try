@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemsCategoryComponent } from './itemsCategory/itemsCategory.component';
+import { ItemsComponent } from './items/items.component';
 import { HomePageComponent } from './homePage/homePage.component';
 import { ItemComponent } from './item/item.component';
 import { MyRequestComponent } from './item/my-request/my-request.component';
@@ -9,11 +9,11 @@ import { RequestDelailsComponent } from './item/request-delails/request-delails.
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
-  { path: 'itemCategory', component: ItemsCategoryComponent},
-  { path: 'itemCategory/item' , component: ItemComponent },
+  { path: 'items/:categoryId', component: ItemsComponent},
+  // { path: 'itemCategory/item' , component: ItemComponent },
   { path: 'item/:itemId' , component: ItemComponent },
   { path: 'myRequests/:userId', component: MyRequestComponent },
-  { path: 'itemCategory/item/requestDetail' , component: RequestDelailsComponent }
+  { path: 'myRequests/:userId/requestDetail/:idRequest' , component: RequestDelailsComponent }
 ];
 
 @NgModule({

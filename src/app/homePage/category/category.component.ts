@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent {
   categories;
-
+  imgSrc: string = "assets/{{category.img}}";
   constructor(private categoryService : CategoryService, private router:Router) { 
     this.categories = this.categoryService.getCategories();
   }
 
-  onCategoryClick(category:any){
-    this.categoryService.onCategoryClick(category);
-    this.router.navigate(['itemCategory']);
+  onCategoryClick(categoryId){
+   // this.categoryService.onCategoryClick(id);
+    this.router.navigate(['items', categoryId]);
   }
 }

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './homePage/category/category.component';
-import { ItemsCategoryComponent } from './itemsCategory/itemsCategory.component';
+import { ItemsComponent } from './items/items.component';
 import { HomePageComponent } from './homePage/homePage.component';
 import { ItemComponent } from './item/item.component';
 import { MyRequestComponent } from './item/my-request/my-request.component';
@@ -40,7 +40,7 @@ import {
   declarations: [
     AppComponent,
     CategoryComponent,
-    ItemsCategoryComponent,
+    ItemsComponent,
     HeaderComponent,
     HomePageComponent,
     ItemComponent,
