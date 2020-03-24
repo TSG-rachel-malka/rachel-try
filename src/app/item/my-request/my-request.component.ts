@@ -2,7 +2,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Request } from './../../models/request.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoryService } from '../../category.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RequestsService } from './requests.service';
 import { MatPaginator } from '@angular/material';
 
@@ -23,7 +23,8 @@ export class MyRequestComponent implements OnInit {
   userId;
   constructor(private categoryServicea:CategoryService, 
               public route: ActivatedRoute, 
-              public myRequestsService: RequestsService){}
+              public myRequestsService: RequestsService,
+              public router: Router){}
   
   ngOnInit() {
     this.route.params.subscribe(
@@ -34,6 +35,9 @@ export class MyRequestComponent implements OnInit {
     this.myRequests = this.myRequestsService.getRequests(this.userId).slice();
     this.dataSource = new MatTableDataSource<Request>(this.myRequests);
     this.dataSource.paginator = this.paginator;
+  }
+  expandRequest(requestId){
+    this.router.navigate(['requestDetails', requestId]);
   }
 
 }
