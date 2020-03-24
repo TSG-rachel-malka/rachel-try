@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './homePage/category/category.component';
-import { ItemCategoryComponent } from './itemsCategory/itemsCategory.component';
+import { ItemsCategoryComponent } from './itemsCategory/itemsCategory.component';
 import { HomePageComponent } from './homePage/homePage.component';
 import { ItemComponent } from './item/item.component';
 import { MyRequestComponent } from './item/my-request/my-request.component';
@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 
+
 import {
   MatStepperModule,
   MatGridListModule,
@@ -27,7 +28,10 @@ import {
   MatButtonModule,
   MatBadgeModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule
+
 } from "@angular/material";
 
 
@@ -36,13 +40,13 @@ import {
   declarations: [
     AppComponent,
     CategoryComponent,
-    ItemCategoryComponent,
+    ItemsCategoryComponent,
     HeaderComponent,
     HomePageComponent,
     ItemComponent,
     MyRequestComponent,
     RequestDelailsComponent,
-    SearchComponent
+    SearchComponent   
     ],
   imports: [
     MatListModule,
@@ -62,6 +66,8 @@ import {
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
+    MatTableModule,
+    MatPaginatorModule
     ],
   providers: [],
   bootstrap: [AppComponent]

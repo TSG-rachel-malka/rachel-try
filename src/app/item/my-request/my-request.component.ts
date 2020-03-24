@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Request } from './../../models/request.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoryService } from '../../category.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { RequestsService } from './requests.service';
+import { MatPaginator } from '@angular/material';
+
+
+
 
 @Component({
   selector: 'app-my-request',
@@ -9,15 +15,25 @@ import { RequestsService } from './requests.service';
   styleUrls: ['./my-request.component.css']
 })
 export class MyRequestComponent implements OnInit {
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  displayedColumns: string[] = ['name', 'description', 'status', 'create'];
   requestDetail:any;
-  userId: string;
-  myRequsts;
-  constructor(private categoryServicea:CategoryService, public router: ActivatedRoute, public myRequestsService: RequestsService){}
+  myRequests: Request[];
+  dataSource;
+  userId;
+  constructor(private categoryServicea:CategoryService, 
+              public route: ActivatedRoute, 
+              public myRequestsService: RequestsService){}
   
   ngOnInit() {
-    /*this.userId = this.router.params['userId'].subscribe();
-   debugger;
-    this.myRequsts = this.myRequestsService.getUserRequests(this.userId).slice();*/
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.userId = +params['userId'];
+      }
+    );
+    this.myRequests = this.myRequestsService.getRequests(this.userId).slice();
+    this.dataSource = new MatTableDataSource<Request>(this.myRequests);
+    this.dataSource.paginator = this.paginator;
   }
 
 }

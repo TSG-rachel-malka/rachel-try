@@ -6,8 +6,8 @@
             aria-label="Category"
             [matAutocomplete]="auto"
             [formControl]="categoryCtrl">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let item of filteredItemsCategories | async" [value]="item.name">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)">
+        <mat-option *ngFor="let item of filteredItemsCategories | async" [value]="item.name" [id]="item.sys_id" >
           <img class="example-option-img" aria-hidden src="../../../assets/{{item.img}}" height="25">
           <span>{{item.name}}</span> |
           <small>{{item.description}}</small>

@@ -43,8 +43,10 @@ export class CategoryService {
   onItemClick(sys_id){
     this.itemClicked = this.mockDataItem.find(item => item.sys_id === sys_id);
   }
-  getItem(){
-    console.log(this.itemClicked);
+  getItem(itemId?: string){
+    if(itemId) {
+      return this.mockDataItem.find(item => item.sys_id === itemId);
+    }
     return this.itemClicked;
   }
   onSubmitItem(item:any,value:any){

@@ -19,7 +19,6 @@ export class RequestDelailsComponent implements OnInit{
     this.requestDetail = this.categoryService.getRequestDetail();
     this.categoryService.getStatusMyRequest().subscribe((status)=>{
       this.currentStep = status;
-      console.log(this.currentStep);
     });
   }
 }

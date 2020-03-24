@@ -8,6 +8,7 @@ import { CategoryService } from '../category.service';
 })
 export class HeaderComponent implements OnInit {
   requestCounter=0;
+  userId = '456789';
   constructor(private categoryService:CategoryService) { }
 
   ngOnInit() {
