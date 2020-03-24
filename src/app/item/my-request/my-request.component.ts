@@ -5,6 +5,7 @@ import { CategoryService } from '../../category.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RequestsService } from './requests.service';
 import { MatPaginator } from '@angular/material';
+import { Subscription } from 'rxjs';
 
 
 
@@ -19,6 +20,7 @@ export class MyRequestComponent implements OnInit {
   displayedColumns: string[] = ['name', 'description', 'status', 'create'];
   requestDetail:any;
   myRequests: Request[];
+  myRequestSub: Subscription;
   dataSource;
   userId;
   constructor(private categoryServicea:CategoryService, 
@@ -32,7 +34,14 @@ export class MyRequestComponent implements OnInit {
         this.userId = +params['userId'];
       }
     );
+    this.myRequestSub = this.myRequestsService.myRequestsUpdated
+      .subscribe(
+        (request: Request[]) => {
+          this.myRequests = request;
+        }
+      );
     this.myRequests = this.myRequestsService.getRequests(this.userId).slice();
+    this.myRequestSub = this.myRequestsService.getRequestsUpdated().subscribe();
     this.dataSource = new MatTableDataSource<Request>(this.myRequests);
     this.dataSource.paginator = this.paginator;
   }

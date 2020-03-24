@@ -2,13 +2,15 @@ import { Request } from './../../models/request.model';
 import { Injectable } from '@angular/core';
 
 import data from '../../jsonFiles/request.json';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestsService {
   myRequests:Request[] = data;
- 
+  myRequestsUpdated = new Subject<Request[]>();
+
   constructor() {}
 
   getRequests(userId): Request[]{
@@ -17,4 +19,9 @@ export class RequestsService {
       }
       else return this.myRequests;   
   }
+
+  getRequestsUpdated() {
+    return this.myRequestsUpdated.asObservable();
+  }
+
 }
