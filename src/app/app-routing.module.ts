@@ -12,8 +12,10 @@ const routes: Routes = [
   { path: 'itemCategory', component: ItemsCategoryComponent},
   { path: 'itemCategory/item' , component: ItemComponent },
   { path: 'item/:itemId' , component: ItemComponent },
-  { path: 'myRequests/:userId', component: MyRequestComponent },
-  { path: 'itemCategory/item/requestDetail' , component: RequestDelailsComponent }
+  { path: 'myRequests/:userId', component: MyRequestComponent,children:[
+    { path: 'requestDetail/:requestId' , component: RequestDelailsComponent }
+  ] }
+ 
 ];
 
 @NgModule({

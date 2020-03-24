@@ -23,7 +23,7 @@ export class CategoryService {
   mockDataRequest = requestData
   itemsOfCategoryClicked: Category;
   itemsCategories:any[] = [];
-  itemClicked: Item;
+  itemClicked;
   counter = 0 ;
   requestCounter: Subject<number> = new Subject<number>(); 
   statusIdRequest : Subject<number> = new Subject<number>(); 
@@ -74,7 +74,7 @@ export class CategoryService {
   getStatusOptionsRequest(){
     return this.statusOptionsRequest;
   }
-  getItemsCategories() :any[]{
+  getItemsCategories() :Item[]{
     this.mockDataCategory.map(category => {
       if(category.items.length > 0){
           category.items.map( item =>{

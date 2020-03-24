@@ -7,7 +7,9 @@
                 [colspan]="1"
                 [rowspan]="1">
                 <mat-card>
-                    <img class="img" mat-card-image src="assets/{{category.img}}" alt="">
+                    <div class="overlay zoom">
+                        <img class="img" mat-card-image src="assets/{{category.img}}" alt="">
+                    </div>
                     <mat-card-title color="primary">{{category.name}}</mat-card-title>
                     <mat-card-content>{{category.description}}</mat-card-content>
                 </mat-card>

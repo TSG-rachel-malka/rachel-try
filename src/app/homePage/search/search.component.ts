@@ -1,8 +1,9 @@
+import { Item } from './../../models/item.model';
 
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, startWith, filter} from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { CategoryService } from 'src/app/category.service';
@@ -16,8 +17,9 @@ export class SearchComponent implements OnInit{
 
   categories: any[];
   categoryCtrl = new FormControl();
-  filteredItemsCategories: Observable<any[]>;
-  itemsCategories: any[];
+  filteredItemsCategories: Observable<Item[]>;
+  itemsCategories: Item[];
+  filteredCategories: Observable<string[]>;
   constructor(private categoryService : CategoryService, private router:Router, private route:ActivatedRoute) {}
 
   ngOnInit() {
@@ -25,21 +27,23 @@ export class SearchComponent implements OnInit{
     this.itemsCategories = this.categoryService.getItemsCategories();
     this.filteredItemsCategories = this.categoryCtrl.valueChanges
     .pipe(
-      map(category => category ? this._filterItems(category) : this.itemsCategories.slice())
+      map(item => item ? this._filterItems(item) : this.itemsCategories.slice())
     );
   }
-
-  private _filterItems(value: string): any[]{
+  private _filterItems(value: string): Item[]{
     if(!value){
-       return;
-    }
-    const filterValue = value.toLowerCase();
-    let categoriesId: string[];
-    this.categories.filter(category => category.name.toLowerCase().includes(filterValue));
-    categoriesId = this.categories.map(category => category.sys_id);
-     // || categoriesId.indexOf(item.category_id) > 1
+      return;
+   }
+   const filterValue = value.toLowerCase();
+    const categoriesId: string[] = this._getCategoriesId(filterValue);
       return this.itemsCategories.filter(item => item.name.toLowerCase().includes(filterValue)
     );
+  }
+  private _getCategoriesId(value: string): string[]{
+     this.categories.filter(category => {return category.name.includes(value)}
+     );
+     return this.categories.map(category => category.sys_id);
+    
   }
   onSelectionChanged(event) {
     if(event.option && event.option.id){
