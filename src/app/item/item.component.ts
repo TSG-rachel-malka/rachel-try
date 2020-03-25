@@ -35,11 +35,10 @@ export class ItemComponent implements OnInit {
     if(form.invalid)
       return;
     const idRequest = this.itemId;
-    const userId = this.userId;
-    debugger;
-    const route = "myRequests/"+userId+"/requestDetail";
-    console.log(route);
-    this.router.navigate([route, idRequest, userId ]);
+    //const userId = this.userId;
+    //const route = "myRequests/"+userId+"/requestDetail";
+    //console.log(route);
+    this.router.navigate(["myRequests/456789/requestDetail", idRequest ]);
     this.categoryService.onSubmitItem(this.item,form.value);
     this.categoryService.requestCount();
   }

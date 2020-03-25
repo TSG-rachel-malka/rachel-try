@@ -13,7 +13,7 @@ const routes: Routes = [
   // { path: 'itemCategory/item' , component: ItemComponent },
   { path: 'item/:itemId' , component: ItemComponent },
   { path: 'myRequests/:userId', component: MyRequestComponent },
-  { path: 'myRequests/:userId/requestDetail/:idRequest' , component: RequestDelailsComponent }
+  { path: 'myRequests/456789/requestDetail/:idRequest' , component: RequestDelailsComponent }
 ];
 
 @NgModule({

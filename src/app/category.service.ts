@@ -50,10 +50,15 @@ export class CategoryService {
   }
   onSubmitItem(item:any,value:any){
     const date = ((new Date()).toLocaleDateString()).toString();
-    this.requestDetail = {user_id: "1", sys_id:item.sys_id, name:item.name, description:item.description, img:item.img ,create:date,status:"0", details: value};
+    this.requestDetail = {user_id:this.userId, sys_id:item.sys_id, name:item.name, description:item.description, img:item.img ,create:date,status:"0", details: value};
     requestData.push(this.requestDetail);
   }
+  getRequestData(){
+    this.mockDataRequest = requestData;
+    return this.mockDataRequest;
+  }
   getRequestDetail(id){
+    debugger;
     return requestData.filter(request => request.sys_id === id)
 
   } 
