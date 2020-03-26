@@ -5,6 +5,6 @@ export interface Request {
     description: string;
     img: string;
     create: string;
-    status: string;
+    status: number ;
     details: any;
   }

@@ -54,7 +54,7 @@ export class CategoryService {
     id++;
     this.sys_idRequest++;
     const date = ((new Date()).toLocaleDateString()).toString();
-    this.requestDetail = {user_id:this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:"0", details: value};
+    this.requestDetail = {user_id:this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:0, details: value};
     requestData.push(this.requestDetail);
   }
   getSysIdRequest(){

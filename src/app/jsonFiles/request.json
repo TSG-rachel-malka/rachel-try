@@ -5,7 +5,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"it.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
   },
   {  
@@ -15,7 +15,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"Almak.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
 
   },
@@ -26,7 +26,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"mivne.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
 
   },
@@ -37,7 +37,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"michshuv.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
   },
   {  
@@ -47,7 +47,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"it.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
   },
   {  
@@ -57,7 +57,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"Almak.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
 
   },
@@ -68,7 +68,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"mivne.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
 
   },
@@ -79,7 +79,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"michshuv.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
   },{  
     "user_id": "456789",
@@ -88,7 +88,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"it.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
   },
   {  
@@ -98,7 +98,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"Almak.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
 
   },
@@ -109,7 +109,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"mivne.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
 
   },
@@ -120,7 +120,7 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"michshuv.png",
     "create":"12/02/10",
-    "status":"create",
+    "status": 0,
     "details": []
   }
 ]
