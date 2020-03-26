@@ -15,7 +15,6 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-        debugger;
         if(params['categoryId']){
           this.categoryId = params['categoryId'];
         }

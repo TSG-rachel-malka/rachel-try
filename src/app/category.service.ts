@@ -17,7 +17,8 @@ export class CategoryService {
     { id: 1, value:'in progress'},
     { id: 2, value:'canceled'},
     { id: 3, value:'closed'}];
-  userId = '456789';
+  userId = '456789'; // mock data
+  sys_idRequest:any = 0;
   requestDetail:Request;
   mockDataCategory = categoryData;
   mockDataItem = itemData;
@@ -49,9 +50,15 @@ export class CategoryService {
     return this.itemClicked;
   }
   onSubmitItem(item:any,value:any){
+    var id = 12; // mock data
+    id++;
+    this.sys_idRequest++;
     const date = ((new Date()).toLocaleDateString()).toString();
-    this.requestDetail = {user_id:this.userId, sys_id:item.sys_id, name:item.name, description:item.description, img:item.img ,create:date,status:"0", details: value};
+    this.requestDetail = {user_id:this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:0, details: value};
     requestData.push(this.requestDetail);
+  }
+  getSysIdRequest(){
+    return this.requestDetail.sys_id;
   }
   getRequestData(){
     this.mockDataRequest = requestData;
@@ -59,8 +66,9 @@ export class CategoryService {
   }
   getRequestDetail(id){
     debugger;
-    return requestData.filter(request => request.sys_id === id)
-
+    const try1 = requestData.find(request => request.sys_id === id);
+    return try1;
+     
   } 
   requestCount(){
     this.counter++;

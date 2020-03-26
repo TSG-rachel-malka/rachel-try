@@ -19,6 +19,7 @@ export class RequestDelailsComponent implements OnInit{
     this.route.params.subscribe(
       (params: Params) => {
         if(params['idRequest']){
+          debugger;
           this.idRequest = params['idRequest'];
         }
       }

@@ -43,12 +43,9 @@ export class ItemComponent implements OnInit {
   onSubmit(form: NgForm){
     if(form.invalid)
       return;
-    const idRequest = this.itemId;
-    //const userId = this.userId;
-    //const route = "myRequests/"+userId+"/requestDetail";
-    //console.log(route);
-    this.router.navigate(["myRequests/456789/requestDetail", idRequest ]);
     this.categoryService.onSubmitItem(this.item,form.value);
+    const idRequest = this.categoryService.getSysIdRequest();
+    this.router.navigate(["myRequests/456789/requestDetail", idRequest ]); // mock data
     this.categoryService.requestCount();
   }
 
