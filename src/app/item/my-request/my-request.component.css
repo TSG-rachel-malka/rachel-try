@@ -4,3 +4,10 @@ table {
   mat-row{
     cursor: pointer;
   }
+  /* issue in page size */
+  .mat-paginator-page-size {
+    display: flex;
+    align-items: baseline;
+    margin-right: 8px;
+    display: none;
+}

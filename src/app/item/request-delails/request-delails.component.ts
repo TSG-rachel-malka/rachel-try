@@ -1,3 +1,5 @@
+import { EnumToArrayPipe } from './../../pipes/enumToArray.pipe';
+import { Status } from './../../enum/status.enum';
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { CategoryService } from '../../category.service';
 import { Request } from '../../models/request.model';
@@ -12,19 +14,18 @@ export class RequestDelailsComponent implements OnInit{
   idRequest: number;
   currentStep;
   isLinear = true;
-  statusRequest:any;
+  statusRequest = Status;
   requestDetail:any;
+  
   constructor(private categoryService:CategoryService, public route: ActivatedRoute) { }
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
         if(params['idRequest']){
-          debugger;
           this.idRequest = params['idRequest'];
         }
       }
     ); 
-    this.statusRequest = this.categoryService.getStatusOptionsRequest();
     this.requestDetail = this.categoryService.getRequestDetail(this.idRequest); 
   }
 }

@@ -19,7 +19,7 @@ export class CategoryService {
     { id: 3, value:'closed'}];
   userId = '456789'; // mock data
   sys_idRequest:any = 0;
-  requestDetail:Request;
+  requestDetail: Request;
   mockDataCategory = categoryData;
   mockDataItem = itemData;
   mockDataRequest = requestData;
@@ -54,7 +54,11 @@ export class CategoryService {
     id++;
     this.sys_idRequest++;
     const date = ((new Date()).toLocaleDateString()).toString();
-    this.requestDetail = {user_id:this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:0, details: value};
+    var taskType = 'reqest';
+    if(item.name == 'incident IT'){
+      taskType = 'incident';
+    }
+    this.requestDetail = {user_id:this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:0, task_type: taskType, details: value};
     requestData.push(this.requestDetail);
   }
   getSysIdRequest(){

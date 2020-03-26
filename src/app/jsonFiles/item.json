@@ -3,7 +3,6 @@
     "name": "service IT",
     "img":"it.png",
     "description": "service IT description",
-    "item_type": "request",
     "fields":[
         {
         "sys_id_field": "1.1.1",
@@ -22,7 +21,6 @@
     "name": "incident IT",
     "img":"it.png",
     "description": "incident IT description",
-    "item_type": "incident",
     "fields":[
         {
         "sys_id_field": "1.2.1",
@@ -41,7 +39,6 @@
     "name": "התקנת תוכנה בשרתים",
     "img":"it.png",
     "description": "התקנת תוכנה בשרתים description",
-    "item_type": "request",
     "fields":[
         {
         "sys_id_field": "2.2.1",

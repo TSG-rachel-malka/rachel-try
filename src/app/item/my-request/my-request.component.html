@@ -1,41 +1,33 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <!--<div mat-card-avatar class="example-header-image"></div>-->
     <mat-card-title>My Requests</mat-card-title>
   </mat-card-header>
     <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!-- Position Column -->
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
       </ng-container>   
-    
-      <!-- Name Column -->
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
       </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="create">
-        <mat-header-cell *matHeaderCellDef> Create </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.create}} </mat-cell>
-      </ng-container>
-    
-      <!-- Symbol Column  (click)="expandRequest(row.sys_id)"-->
       <ng-container matColumnDef="status">
         <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
       </ng-container>
-    
+      <ng-container matColumnDef="task_type">
+        <mat-header-cell *matHeaderCellDef> Task Type </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.task_type}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="create">
+        <mat-header-cell *matHeaderCellDef> Create </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.create}} </mat-cell>
+      </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="expandRequest(row.sys_id)"></mat-row>
     </table>
-    <!--<mat-paginator
-      [pageSize]="5"
-      [pageSizeOptions]="pageSizeOptions"></mat-paginator> -->
-      <mat-paginator #paginator [pageIndex]="1" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="requestCount"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
 </mat-card>
 <!--(page)="onChangePage($event)" -->

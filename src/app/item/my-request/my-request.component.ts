@@ -22,16 +22,13 @@ import {MatSelectModule} from '@angular/material/select';
 })
 export class MyRequestComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false, read: true}) paginator: MatPaginator;
-  displayedColumns: string[] = ['name', 'description', 'status', 'create'];
+  displayedColumns: string[] = ['name', 'description', 'status', 'create', 'task_type'];
   requestDetail:any;
-  myRequests: Request[];
+  myRequests;
   myRequestSub: Subscription;
-  pageSizeOptions = [2,5,10];
-  requestCount = 10;
-  currentPage = 1;
-  requestsPerPage = 2;
   userId;
   dataSource;
+  requestCount: number;
   constructor(private categoryServicea:CategoryService, 
               public route: ActivatedRoute, 
               public myRequestsService: RequestsService,
@@ -41,6 +38,7 @@ export class MyRequestComponent implements OnInit {
               }
   
   ngOnInit() {
+    debugger;
     this.route.params.subscribe(
       (params: Params) => {
         this.userId = +params['userId'];
@@ -52,7 +50,9 @@ export class MyRequestComponent implements OnInit {
           this.requestCount = requestData.requestCount;
         }
       );
+      debugger;
     this.myRequests = this.myRequestsService.getRequests(this.userId).slice();
+    debugger;
     this.myRequestSub = this.myRequestsService.getRequestsUpdated().subscribe();
     this.requestCount = this.myRequests.length;
     this.dataSource.data =  this.myRequests;
@@ -62,13 +62,6 @@ export class MyRequestComponent implements OnInit {
 
   expandRequest(requestId){
     this.router.navigate(['requestDetail', requestId], {relativeTo: this.route});
-  }
-  onChangePage(pageData: PageEvent) {
-    debugger;
-    console.log('page data ' + pageData);
-    this.currentPage = pageData.pageIndex + 1;
-    this.requestsPerPage = pageData.pageSize;
-   // this.postsService.getPosts(this.postsPerPage, this.currentPage);
   }
 
 }

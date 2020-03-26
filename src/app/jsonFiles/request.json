@@ -5,7 +5,8 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"it.png",
     "create":"12/02/10",
-    "status": 0,
+    "status": 1,
+    "task_type": "request",
     "details": []
   },
   {  
@@ -15,7 +16,8 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"Almak.png",
     "create":"12/02/10",
-    "status": 0,
+    "status": 3,
+    "task_type": "request",
     "details": []
 
   },
@@ -26,7 +28,8 @@
     "description": "באזור זה יופיע מלל קצר ותמציתי על תאור הקטגוריה",
     "img":"mivne.png",
     "create":"12/02/10",
-    "status": 0,
+    "status": 2,
+    "task_type": "request",
     "details": []
 
   },
@@ -38,6 +41,7 @@
     "img":"michshuv.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
   },
   {  
@@ -48,6 +52,7 @@
     "img":"it.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
   },
   {  
@@ -58,6 +63,7 @@
     "img":"Almak.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
 
   },
@@ -69,6 +75,7 @@
     "img":"mivne.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
 
   },
@@ -89,6 +96,7 @@
     "img":"it.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
   },
   {  
@@ -99,6 +107,7 @@
     "img":"Almak.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
 
   },
@@ -110,6 +119,7 @@
     "img":"mivne.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
 
   },
@@ -121,6 +131,7 @@
     "img":"michshuv.png",
     "create":"12/02/10",
     "status": 0,
+    "task_type": "request",
     "details": []
   }
 ]

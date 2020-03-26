@@ -11,7 +11,7 @@ main {
 
 mat-card{
     padding: 10px;
-    width: 150px;
+    width: 200px;
     box-shadow: none !important;
 }
 mat-card-title{
@@ -30,4 +30,8 @@ mat-card-title, mat-card-content {
 img{
     margin-left: 4px;
     width: 150px;
+}
+.mat-card-image.img:hover { 
+    opacity: 0.8;
+    transform: scale(1.1); 
 }

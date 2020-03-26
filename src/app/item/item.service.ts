@@ -9,6 +9,6 @@ export class ItemService {
 
     mockDataItem = itemData;
     getIncidentItem(): Item {
-        return this.mockDataItem.find(item => item.item_type == 'incident');
+        return this.mockDataItem.find(item => item.name == 'incident IT');
     }        
 }

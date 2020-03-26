@@ -1,4 +1,4 @@
-//import { AngularMaterialModule } from './angular-material.module';
+import { EnumToArrayPipe } from './pipes/enumToArray.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +32,8 @@ import {
   MatIconModule,
   MatStepperModule,
   MatGridListModule,
-         MatSortModule, MatTableModule
+  MatSortModule, 
+  MatTableModule
 } from "@angular/material";
 
 
@@ -46,7 +47,8 @@ import {
     ItemComponent,
     MyRequestComponent,
     RequestDelailsComponent,
-    SearchComponent
+    SearchComponent,
+    EnumToArrayPipe
   ],
   imports: [
     ReactiveFormsModule,
@@ -54,7 +56,6 @@ import {
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    //AngularMaterialModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

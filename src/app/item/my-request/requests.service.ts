@@ -3,28 +3,21 @@ import { Injectable } from '@angular/core';
 
 import data from '../../jsonFiles/request.json';
 import { Subject } from 'rxjs';
-import { CategoryService } from '../../category.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestsService {
-  myRequests:Request[] = data;
+  myRequests = data;
   myRequestsUpdated = new Subject<{request: Request[], requestCount:number}>();
 
-  constructor(private categoryService:CategoryService) {
-    this.myRequests = this.categoryService.getRequestData();
-  }
-
-  getRequests(userId): Request[]{
+  getRequests(userId){
       if(userId){
         return this.myRequests.filter(request => request.user_id.toLowerCase().indexOf(userId) === 0);
       }
-      else return this.myRequests;   
   }
 
-  getRequestsUpdated() {
-    debugger;
+  getRequestsUpdated(){
     return this.myRequestsUpdated.asObservable();
   }
 
