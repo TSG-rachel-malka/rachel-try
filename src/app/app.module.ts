@@ -1,3 +1,4 @@
+//import { AngularMaterialModule } from './angular-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,30 +11,29 @@ import { ItemComponent } from './item/item.component';
 import { MyRequestComponent } from './item/my-request/my-request.component';
 import { RequestDelailsComponent } from './item/request-delails/request-delails.component';
 import { SearchComponent } from './homePage/search/search.component';
-
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 
-
 import {
-  MatStepperModule,
-  MatGridListModule,
-  MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatToolbarModule,
   MatButtonModule,
+  MatToolbarModule,
+  MatExpansionModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
+  MatDialogModule,
+  MatAutocompleteModule,
   MatBadgeModule,
-  MatIconModule,
+  MatFormFieldModule,
+  MatSelectModule,
   MatListModule,
-  MatTableModule,
-  MatPaginatorModule
-
+  MatIconModule,
+  MatStepperModule,
+  MatGridListModule,
+         MatSortModule, MatTableModule
 } from "@angular/material";
-
 
 
 @NgModule({
@@ -46,10 +46,22 @@ import {
     ItemComponent,
     MyRequestComponent,
     RequestDelailsComponent,
-    SearchComponent   
-    ],
+    SearchComponent
+  ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    AppRoutingModule,
+    //AngularMaterialModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MatListModule,
+    MatExpansionModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
     MatIconModule,
     MatStepperModule,
     MatBadgeModule,
@@ -58,15 +70,10 @@ import {
     MatInputModule,
     MatToolbarModule,
     MatCardModule,
-    ReactiveFormsModule,
-    FormsModule,
     MatSelectModule,
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    BrowserModule,
-    AppRoutingModule,
-    MatTableModule,
+    MatSortModule, MatTableModule,
     MatPaginatorModule
     ],
   providers: [],

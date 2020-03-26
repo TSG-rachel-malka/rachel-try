@@ -10,7 +10,7 @@ import { CategoryService } from '../../category.service';
 })
 export class RequestsService {
   myRequests:Request[] = data;
-  myRequestsUpdated = new Subject<Request[]>();
+  myRequestsUpdated = new Subject<{request: Request[], requestCount:number}>();
 
   constructor(private categoryService:CategoryService) {
     this.myRequests = this.categoryService.getRequestData();
@@ -24,6 +24,7 @@ export class RequestsService {
   }
 
   getRequestsUpdated() {
+    debugger;
     return this.myRequestsUpdated.asObservable();
   }
 

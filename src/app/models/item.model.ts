@@ -4,5 +4,6 @@ export interface Item {
     name: string;
     description: string;
     img: string;
+    item_type: string;
     fields: any;
   }

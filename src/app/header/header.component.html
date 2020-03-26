@@ -5,13 +5,16 @@
     <span class="spacer"></span>
     <ul>
       <li>
-        <a mat-button routerLink="/itemCategory" routerLinkActive="mat-accent">categories</a>
+        <a mat-button routerLink="/itemCategory" routerLinkActive="mat-accent">{{ lables.categories}}</a>
       </li>
       <li>
           <a mat-button [routerLink]="['/myRequests',  userId]" routerLinkActive="mat-accent">
-            <span *ngIf="requestCounter==0">my Requests</span>
-            <span *ngIf="requestCounter>0" matBadge="{{requestCounter}}" matBadgeOverlap="false" matBadgeColor="accent">my Requests</span></a>
-        </li>
+            <span *ngIf="requestCounter>0" matBadge="{{requestCounter}}" matBadgeOverlap="false" matBadgeColor="accent">{{ lables.myRequests }}</span>
+          </a>
+      </li>
+      <li>
+        <a mat-button [routerLink]="['/createIncident']" routerLinkActive="mat-accent">{{ lables.createIncident }}</a>
+      </li>
     </ul>
   </mat-toolbar>
   

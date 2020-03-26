@@ -10,6 +10,11 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit {
   requestCounter:number = 0 ;
 
+  lables = {
+    categories: 'Categories', 
+    myRequests: 'My Requests',
+    createIncident: 'Create Incident'
+  };
   userId;
   constructor(private categoryService:CategoryService) {  }
   ngOnInit() {

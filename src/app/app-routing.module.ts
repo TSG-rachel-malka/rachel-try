@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'items/:categoryId', component: ItemsComponent},
   // { path: 'itemCategory/item' , component: ItemComponent },
   { path: 'item/:itemId' , component: ItemComponent },
+  { path: 'createIncident' , component: ItemComponent },
   { path: 'myRequests/:userId', component: MyRequestComponent },
   { path: 'myRequests/456789/requestDetail/:idRequest' , component: RequestDelailsComponent }
 ];

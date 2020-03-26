@@ -1,3 +1,4 @@
+import { ItemService } from './item.service';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -12,21 +13,29 @@ export class ItemComponent implements OnInit {
   item;
   userId;
   itemId: string;
-  constructor(private categoryService : CategoryService, private router:Router, public route: ActivatedRoute) {}
+  createIncident: boolean;
+  constructor(private categoryService : CategoryService, private router:Router, public route: ActivatedRoute, 
+              private itemService: ItemService) {}
 
   ngOnInit() {
+    debugger;
     this.userId = this.categoryService.userId;
     this.route.params.subscribe(
       (params: Params) => {
         if(params['itemId']){
           this.itemId = params['itemId'];
         }
+        else {
+          this.createIncident = true;
+        }
       }
     ); 
     if(this.itemId){
       this.item = this.categoryService.getItem(this.itemId);
     }
-    else this.item = this.categoryService.getItem();
+    else if(this.createIncident) {
+      this.item = this.itemService.getIncidentItem();
+    }
   }
   onCancelClick(){
     this.router.navigate(["items" , this.itemId]);
