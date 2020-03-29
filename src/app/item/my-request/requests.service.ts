@@ -1,7 +1,6 @@
 import { Request } from './../../models/request.model';
 import { Injectable } from '@angular/core';
 
-import data from '../../jsonFiles/request.json';
 import { Subject } from 'rxjs';
 import { CategoryService } from '../../category.service';
 
@@ -9,7 +8,7 @@ import { CategoryService } from '../../category.service';
   providedIn: 'root'
 })
 export class RequestsService {
-  myRequests:Request[] = data;
+  myRequests:Request[];
   myRequestsUpdated = new Subject<Request[]>();
 
   constructor(private categoryService:CategoryService) {

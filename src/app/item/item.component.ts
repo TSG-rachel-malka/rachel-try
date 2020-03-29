@@ -24,9 +24,9 @@ export class ItemComponent implements OnInit {
       }
     ); 
     if(this.itemId){
-      this.item = this.categoryService.getItem(this.itemId);
+      this.item = this.categoryService.getItemForm(this.itemId);
     }
-    else this.item = this.categoryService.getItem();
+    else this.item = this.categoryService.getItemForm();
   }
   onCancelClick(){
     this.router.navigate(["items" , this.itemId]);
