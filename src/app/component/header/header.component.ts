@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
+import { CategoryService } from '../category/category.service';
 import { Subscription } from 'rxjs';
 
 @Component({

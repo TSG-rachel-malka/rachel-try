@@ -1,15 +1,15 @@
-import { ItemService } from './item.service';
+import { ItemService } from '../item.service';
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
+import { CategoryService } from '../../category/category.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  selector: 'app-item-form',
+  templateUrl: './item-form.component.html',
+  styleUrls: ['./item-form.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemFormComponent implements OnInit {
   item;
   userId;
   itemId: string;

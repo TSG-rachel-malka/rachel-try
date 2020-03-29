@@ -4,8 +4,8 @@ import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Category } from 'src/app/models/category.model';
-import { CategoryService } from 'src/app/category.service';
+// import { Category } from 'src/app/models/category.model';
+import { CategoryService } from '../../category/category.service';
 
 @Component({
   selector: 'app-search',

@@ -1,8 +1,6 @@
-import { EnumToArrayPipe } from './../../pipes/enumToArray.pipe';
-import { Status } from './../../enum/status.enum';
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { CategoryService } from '../../category.service';
-import { Request } from '../../models/request.model';
+import { Status } from '../../../data/enum/status.enum';
+import { Component, OnInit } from '@angular/core';
+import { CategoryService } from '../../category/category.service';
 import { Params, ActivatedRoute } from '@angular/router';
 
 @Component({

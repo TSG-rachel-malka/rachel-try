@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../category.service';
+import { CategoryService } from '../../category/category.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  selector: 'app-item-menu',
+  templateUrl: './item-menu.component.html',
+  styleUrls: ['./item-menu.component.css']
 })
-export class ItemsComponent implements OnInit {
+export class ItemMenuComponent implements OnInit {
   itemsOfCategory: any;
   categoryId: number;
   constructor(private categoryService : CategoryService, private router:Router, private route: ActivatedRoute) {}

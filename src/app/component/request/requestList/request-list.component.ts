@@ -1,26 +1,22 @@
-import { AfterViewInit } from '@angular/core';
-//import { MatTableDataSource } from '@angular/material/table';
-import { Request } from './../../models/request.model';
+import { Request } from '../../../data/models/request.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CategoryService } from '../../category.service';
+import { CategoryService } from '../../category/category.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { RequestsService } from './requests.service';
-import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import { RequestsService } from '../request.service';
+import {MatPaginator} from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import {MatTableDataSource} from '@angular/material/table';
-import { tap } from 'rxjs/operators';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+
 
 
 
 
 @Component({
-  selector: 'app-my-request',
-  templateUrl: './my-request.component.html',
-  styleUrls: ['./my-request.component.css']
+  selector: 'app-request-list',
+  templateUrl: './request-list.component.html',
+  styleUrls: ['./request-list.component.css']
 })
-export class MyRequestComponent implements OnInit {
+export class RequestListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false, read: true}) paginator: MatPaginator;
   displayedColumns: string[] = ['name', 'description', 'status', 'create', 'task_type'];
   requestDetail:any;

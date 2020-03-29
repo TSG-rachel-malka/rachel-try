@@ -1,5 +1,6 @@
-import { Request } from './../../models/request.model';
+import { Request } from '../../data/models/request.model';
 import { Injectable } from '@angular/core';
+import data from '../../data/jsonFiles/request.json';
 
 import { Subject } from 'rxjs';
 
@@ -7,8 +8,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class RequestsService {
-  myRequests:Request[];
- // myRequestsUpdated = new Subject<Request[]>();
+  myRequests:Request[] = data;
   myRequestsUpdated = new Subject<{request: Request[], requestCount:number}>();
 
   getRequests(userId){
