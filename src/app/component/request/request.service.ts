@@ -14,7 +14,7 @@ export class RequestsService {
     { id: 2, value:'canceled'},
     { id: 3, value:'closed'}];
   mockDataRequest = requestData;
-  myRequests:Request[] = requestData;
+  myRequests:any[] = requestData;
   myRequestsUpdated = new Subject<{request: Request[], requestCount:number}>();
   counter = 0 ;
   requestCounter = new Subject<number>(); 

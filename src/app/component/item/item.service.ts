@@ -32,7 +32,7 @@ export class ItemService {
         if(item.name == 'incident IT'){
           taskType = 'incident';
         }
-        this.requestDetail = {user_id: this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:0, task_type: taskType, details: value};
+        this.requestDetail = {user_id: this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:{value: 0, name: 'Create'}, task_type: taskType, details: value};
         requestData.push(this.requestDetail);
       } 
       getSysIdRequest(){
