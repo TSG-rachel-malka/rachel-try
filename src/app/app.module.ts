@@ -4,18 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { CategoryComponent } from './homePage/category/category.component';
-import { ItemsComponent } from './items/items.component';
-import { HomePageComponent } from './homePage/homePage.component';
-import { ItemComponent } from './item/item.component';
-import { MyRequestComponent } from './item/my-request/my-request.component';
-import { RequestDelailsComponent } from './item/request-delails/request-delails.component';
-import { SearchComponent } from './homePage/search/search.component';
+import { CategoryHomeComponent } from './component/category/categoryHome/category-home.component';
+import { ItemMenuComponent } from './component/item/itemMenu/item-menu.component';
+import { HomePageComponent } from './component/homePage/homePage.component';
+import { ItemFormComponent } from './component/item/itemForm/item-form.component';
+import { RequestListComponent } from './component/request/requestList/request-list.component';
+import { RequestDelailsComponent } from './component/request/requestDelails/request-delails.component';
+import { SearchComponent } from './component/homePage/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
 import { HttpClientModule } from "@angular/common/http";
-
+import { HeaderComponent } from './component/header/header.component';
 import {
   MatInputModule,
   MatCardModule,
@@ -39,13 +38,13 @@ import {
 
 @NgModule({
   declarations: [
+    ItemMenuComponent,
+    ItemFormComponent,
+    RequestListComponent,
     AppComponent,
-    CategoryComponent,
-    ItemsComponent,
+    CategoryHomeComponent,
     HeaderComponent,
-    HomePageComponent,
-    ItemComponent,
-    MyRequestComponent,
+    HomePageComponent, 
     RequestDelailsComponent,
     SearchComponent,
     EnumToArrayPipe

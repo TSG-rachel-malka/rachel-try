@@ -1,7 +1,7 @@
-import { Status } from './../../enum/status.enum';
-import { Request } from './../../models/request.model';
+import { Status } from './../../data/enum/status.enum';
+import { Request } from './../../data/models/request.model';
 import { Injectable } from '@angular/core';
-import data from '../../jsonFiles/request.json';
+import data from '../../data/jsonFiles/request.json';
 import { Subject } from 'rxjs';
 
 @Injectable({

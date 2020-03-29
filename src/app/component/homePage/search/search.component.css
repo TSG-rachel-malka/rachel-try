@@ -1,0 +1,40 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+.example-option-img {
+    vertical-align: middle;
+    margin-right: 8px; 
+}
+
+[dir='rtl'] .example-option-img {
+    margin-right: 0;
+    margin-left: 8px;
+}
+.row.image{
+    background-image: url(../../../../assets/katarheroimage.png);
+    height: 468px;
+    margin-top: -75px;
+}
+main {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+
+.img{
+    width: 100%;
+    padding-left: 13%;
+}
+mat-form-field{
+    background-color: white;
+}
+form{
+    padding-top: 15%;
+    padding-left: 33%;
+}

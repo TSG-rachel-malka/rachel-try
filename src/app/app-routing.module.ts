@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ItemsComponent } from './items/items.component';
-import { HomePageComponent } from './homePage/homePage.component';
-import { ItemComponent } from './item/item.component';
-import { MyRequestComponent } from './item/my-request/my-request.component';
-import { RequestDelailsComponent } from './item/request-delails/request-delails.component';
+import { ItemMenuComponent } from './component/item/itemMenu/item-menu.component';
+import { HomePageComponent } from './component/homePage/homePage.component';
+import { ItemFormComponent } from './component/item/itemForm/item-form.component';
+import { RequestListComponent } from './component/request/requestList/request-list.component';
+import { RequestDelailsComponent } from './component/request/requestDelails/request-delails.component';
 
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
-  { path: 'items/:categoryId', component: ItemsComponent},
-  // { path: 'itemCategory/item' , component: ItemComponent },
-  { path: 'item/:itemId' , component: ItemComponent },
-  { path: 'createIncident' , component: ItemComponent },
-  { path: 'myRequests/:userId', component: MyRequestComponent },
+  { path: 'items/:categoryId', component: ItemMenuComponent},
+  { path: 'item/:itemId' , component: ItemFormComponent },
+  { path: 'createIncident' , component: ItemFormComponent },
+  { path: 'myRequests/:userId', component: RequestListComponent },
   { path: 'myRequests/456789/requestDetail/:idRequest' , component: RequestDelailsComponent }
 ];
 
