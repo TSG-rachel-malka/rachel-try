@@ -6,13 +6,13 @@
     <mat-list-item role="listitem"><b>create :</b> {{requestDetail.create}}</mat-list-item>
     <mat-list-item role="listitem" *ngFor="let field of requestDetail.details | keyvalue"><b>{{field.key}} :</b> {{field.value}}</mat-list-item>
     </mat-list>
-    <mat-horizontal-stepper linear [selectedIndex]="currentStep" #stepper>
-    <ng-container *ngFor="let status of statusRequest">
+    <mat-horizontal-stepper linear [selectedIndex]="requestDetail.status" #stepper>
+    <ng-container *ngFor="let status of statusRequest | enumToArray">
         <ng-template matStepperIcon="home">
                 <mat-icon>home</mat-icon>
         </ng-template>
         <mat-step [editable]="false">
-                <ng-template matStepLabel>{{status.value}}</ng-template>
+                <ng-template matStepLabel>{{status}}</ng-template>
                 </mat-step>
     </ng-container>
     </mat-horizontal-stepper>

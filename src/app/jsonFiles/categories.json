@@ -8,13 +8,15 @@
         "sys_id": "1.1",
         "name":"service IT",
         "description": "service IT description",
-        "img":"it.png"
+        "img":"it.png",
+        "category_id": "1"
         },
         {
             "sys_id": "1.2",
             "name":"incident IT",
             "description": "incident IT description",
-            "img":"it.png"
+            "img":"it.png",
+            "category_id": "1"
         }
             
     ]

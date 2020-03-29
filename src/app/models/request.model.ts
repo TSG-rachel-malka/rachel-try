@@ -6,5 +6,6 @@ export interface Request {
     img: string;
     create: string;
     status: number ;
+    task_type: string;
     details: any;
   }
