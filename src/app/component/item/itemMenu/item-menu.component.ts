@@ -20,7 +20,7 @@ export class ItemMenuComponent implements OnInit {
         }
       }
     ); 
-    this.itemsOfCategory = this.categoryService.getItemsOfCategory(this.categoryId); 
+    this.itemsOfCategory = this.categoryService.getItemsMeuu(this.categoryId); 
   }
 
   onItemClick(itemId){

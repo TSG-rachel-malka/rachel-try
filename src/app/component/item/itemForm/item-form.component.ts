@@ -1,8 +1,8 @@
 import { ItemService } from '../item.service';
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../category/category.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { RequestsService } from '../../request/request.service';
 
 @Component({
   selector: 'app-item-form',
@@ -14,12 +14,11 @@ export class ItemFormComponent implements OnInit {
   userId;
   itemId: string;
   createIncident: boolean;
-  constructor(private categoryService : CategoryService, private router:Router, public route: ActivatedRoute, 
-              private itemService: ItemService) {}
+  constructor(private itemService : ItemService, private router:Router, public route: ActivatedRoute ,private requestsService :RequestsService ) {}
 
   ngOnInit() {
     debugger;
-    this.userId = this.categoryService.userId;
+    this.userId = this.itemService.userId;
     this.route.params.subscribe(
       (params: Params) => {
         if(params['itemId']){
@@ -31,9 +30,8 @@ export class ItemFormComponent implements OnInit {
       }
     ); 
     if(this.itemId){
-      this.item = this.categoryService.getItemForm(this.itemId);
+      this.item = this.itemService.getItemForm(this.itemId);
     }
-    //else this.item = this.categoryService.getItemForm();
     else if(this.createIncident) {
       this.item = this.itemService.getIncidentItem();
     }
@@ -44,10 +42,10 @@ export class ItemFormComponent implements OnInit {
   onSubmit(form: NgForm){
     if(form.invalid)
       return;
-    this.categoryService.onSubmitItem(this.item,form.value);
-    const idRequest = this.categoryService.getSysIdRequest();
+    this.itemService.onSubmitItem(this.item,form.value);
+    const idRequest = this.itemService.getSysIdRequest();
     this.router.navigate(["myRequests/456789/requestDetail", idRequest ]); // mock data
-    this.categoryService.requestCount();
+    this.requestsService.requestCount();
   }
 
 }

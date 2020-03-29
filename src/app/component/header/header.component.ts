@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category/category.service';
 import { Subscription } from 'rxjs';
+import { RequestsService } from '../request/request.service';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,11 @@ export class HeaderComponent implements OnInit {
     createIncident: 'Create Incident'
   };
   userId;
-  constructor(private categoryService:CategoryService) {  }
+  constructor(private categoryService:CategoryService , private requestsService: RequestsService) {  }
   ngOnInit() {
     this.userId = this.categoryService.userId;
-    this.requestCounter = this.categoryService.getRequestsCounterInit(this.userId);
-    this.categoryService.getRequestCounter().subscribe(requestCounter => {
+    this.requestCounter = this.requestsService.getRequestsCounterInit(this.userId);
+    this.requestsService.getRequestCounter().subscribe(requestCounter => {
         this.requestCounter = requestCounter;
     });
   }

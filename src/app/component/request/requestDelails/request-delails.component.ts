@@ -2,6 +2,7 @@ import { Status } from '../../../data/enum/status.enum';
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../category/category.service';
 import { Params, ActivatedRoute } from '@angular/router';
+import { RequestsService } from '../request.service';
 
 @Component({
   selector: 'app-request-delails',
@@ -15,7 +16,7 @@ export class RequestDelailsComponent implements OnInit{
   statusRequest = Status;
   requestDetail:any;
   
-  constructor(private categoryService:CategoryService, public route: ActivatedRoute) { }
+  constructor(private requestsService :RequestsService, public route: ActivatedRoute) { }
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
@@ -24,6 +25,6 @@ export class RequestDelailsComponent implements OnInit{
         }
       }
     ); 
-    this.requestDetail = this.categoryService.getRequestDetail(this.idRequest); 
+    this.requestDetail = this.requestsService.getRequestDetail(this.idRequest); 
   }
 }
