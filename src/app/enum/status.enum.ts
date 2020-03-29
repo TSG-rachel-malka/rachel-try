@@ -1,6 +1,7 @@
  export enum Status {
     'Create' = 0,
     'Open' = 1,
-    'Inprogress' = 2,
-    'Complete' = 3
+    'In progress' = 2,
+    'Close' = 3,
+    'Complete' = 4
 }

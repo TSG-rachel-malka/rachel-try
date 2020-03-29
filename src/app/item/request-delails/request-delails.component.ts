@@ -16,7 +16,7 @@ export class RequestDelailsComponent implements OnInit{
   isLinear = true;
   statusRequest = Status;
   requestDetail:any;
-  
+  currentStatus: number;
   constructor(private categoryService:CategoryService, public route: ActivatedRoute) { }
   ngOnInit() {
     this.route.params.subscribe(
@@ -27,5 +27,8 @@ export class RequestDelailsComponent implements OnInit{
       }
     ); 
     this.requestDetail = this.categoryService.getRequestDetail(this.idRequest); 
+    debugger;
+    this.currentStatus = this.requestDetail.status.value;
+    debugger;
   }
 }

@@ -14,6 +14,7 @@ import { SearchComponent } from './homePage/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from "@angular/common/http";
 
 import {
   MatInputModule,
@@ -35,7 +36,6 @@ import {
   MatSortModule, 
   MatTableModule
 } from "@angular/material";
-
 
 @NgModule({
   declarations: [
@@ -75,7 +75,8 @@ import {
     MatAutocompleteModule,
     MatFormFieldModule,
     MatSortModule, MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
