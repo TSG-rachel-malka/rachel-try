@@ -1,21 +1,51 @@
 
-<div *ngIf="item" class="example-container">
-     <form #ItemForm="ngForm" (submit)="onSubmit(ItemForm)">
+<mat-grid-list cols="2" rowHeight="90%">
+<mat-grid-tile>
+    <div *ngIf="item" class="example-container">
+        <form #ItemForm="ngForm" (submit)="onSubmit(ItemForm)">
             <mat-card-title>{{item.name}}</mat-card-title>
-        <div *ngFor="let item of item.fields" >
-            <mat-form-field appearance="fill" >
-                <mat-label>{{item.name}}</mat-label>
-                <input #name="ngModel" required name="{{item.name}}" ngModel="" matInput type="{{item.type}}">
-                <mat-error *ngIf="name.errors.required">{{item.name}} is required.</mat-error>
-            </mat-form-field>
-            <br>
-        </div>
-        <button type="submit" mat-raised-button color="accent">Submit</button>
-        <button mat-raised-button color="primary" (click)=onCancelClick()>Cancel</button>
-    </form>
-    <img src="assets/{{item.img}}">
-
-</div>
+                <div *ngFor="let field of formField; let index = index" >
+                    <div *ngIf="field.type!='select'"> 
+                        <mat-form-field appearance="fill" >
+                            <mat-label>{{field.name}}</mat-label>
+                            <input 
+                                #name="ngModel" 
+                                required 
+                                name="{{field.name}}" 
+                                ngModel="" 
+                                matInput 
+                                type="{{field.type}}">
+                            <mat-error *ngIf="name.errors.required">{{field.name}} is required.</mat-error>
+                        </mat-form-field>
+                        <br>
+                    </div>
+                <div *ngIf="field.type=='select'"> 
+                    <mat-form-field>
+                        <mat-label>{{field.name}}</mat-label>
+                        <mat-select 
+                            [(ngModel)]="selected" 
+                            [ngModelOptions]="{standalone: true}">
+                            <mat-option 
+                                *ngFor="let food of formField[index].relatedArr" 
+                                value="food.id" 
+                                name="food.name">
+                                 {{food.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>                 
+                    <br>
+                </div>
+            </div>
+            <button type="submit" mat-raised-button color="accent">Submit</button>
+            <button mat-raised-button color="primary" (click)= onCancelClick()>Cancel</button>
+        </form>
+    </div>
+</mat-grid-tile>
+<mat-grid-tile>
+    <div>
+        <img src="assets/{{item.img}}">
+    </div>
+</mat-grid-tile>
 <div class="example-container" *ngIf="!item">
     <p>There is no Form to this Item</p>
 </div>

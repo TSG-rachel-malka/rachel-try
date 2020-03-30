@@ -14,8 +14,12 @@ import { SearchComponent } from './component/homePage/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './component/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import {
+  MatSnackBarModule,
+  MatMenuModule,
   MatInputModule,
   MatCardModule,
   MatButtonModule,
@@ -33,8 +37,11 @@ import {
   MatStepperModule,
   MatGridListModule,
   MatSortModule, 
-  MatTableModule
+  MatTableModule,
+  
+  
 } from "@angular/material";
+import { CategoryMenuComponent } from './component/category/categoryMenu/category-menu.component';
 
 
 @NgModule({
@@ -48,7 +55,8 @@ import {
     HomePageComponent, 
     RequestDelailsComponent,
     SearchComponent,
-    EnumToArrayPipe
+    EnumToArrayPipe,
+    CategoryMenuComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -56,8 +64,11 @@ import {
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     MatSelectModule,
     MatListModule,
     MatExpansionModule,
@@ -73,9 +84,9 @@ import {
     MatCardModule,
     MatSelectModule,
     MatAutocompleteModule,
-    MatFormFieldModule,
     MatSortModule, MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

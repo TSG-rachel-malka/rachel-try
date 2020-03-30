@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Item } from '../../data/models/item.model';
 import itemData from '../../data/jsonFiles/item.json';
 import requestData from '../../data/jsonFiles/request.json';
+import incidentData from '../../data/jsonFiles/incidentFormFields.json';
+
 import { Request } from '../../data/models/request.model'
 
 @Injectable({
@@ -35,8 +37,11 @@ export class ItemService {
         this.requestDetail = {user_id: this.userId, sys_id:"RI"+ id, name:item.name, description:item.description, img:item.img ,create:date,status:0, task_type: taskType, details: value};
         requestData.push(this.requestDetail);
       } 
-      getSysIdRequest(){
-        return this.requestDetail.sys_id;
-      } 
+    getSysIdRequest(){
+      return this.requestDetail.sys_id;
+    } 
+    getIncidentFormField(){
+      return incidentData;
+    }
   
 }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RequestsService } from '../../request/request.service';
+import { FormField } from '../../../data/models/formField.model';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-item-form',
@@ -10,14 +12,19 @@ import { RequestsService } from '../../request/request.service';
   styleUrls: ['./item-form.component.css']
 })
 export class ItemFormComponent implements OnInit {
+  selected;
+  formField: FormField[];
   item;
   userId;
   itemId: string;
   createIncident: boolean;
-  constructor(private itemService : ItemService, private router:Router, public route: ActivatedRoute ,private requestsService :RequestsService ) {}
+  constructor(private itemService : ItemService, 
+              private router:Router, 
+              public route: ActivatedRoute ,
+              private requestsService :RequestsService,
+              private _snackBar: MatSnackBar ) {}
 
   ngOnInit() {
-    debugger;
     this.userId = this.itemService.userId;
     this.route.params.subscribe(
       (params: Params) => {
@@ -34,18 +41,22 @@ export class ItemFormComponent implements OnInit {
     }
     else if(this.createIncident) {
       this.item = this.itemService.getIncidentItem();
+      this.formField = this.itemService.getIncidentFormField(); 
     }
   }
+
   onCancelClick(){
     this.router.navigate(["items" , this.itemId]);
   }  
   onSubmit(form: NgForm){
     if(form.invalid)
       return;
+    // this._snackBar.open(this.itemId, "create", {
+    //       duration: 1000
+    //     }); 
     this.itemService.onSubmitItem(this.item,form.value);
     const idRequest = this.itemService.getSysIdRequest();
     this.router.navigate(["myRequests/456789/requestDetail", idRequest ]); // mock data
     this.requestsService.requestCount();
   }
-
 }
