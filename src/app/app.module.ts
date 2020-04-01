@@ -15,9 +15,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderComponent } from './component/header/header.component';
+<<<<<<< HEAD
 import {MatTabsModule} from '@angular/material/tabs';
+=======
+>>>>>>> refs/remotes/origin/master!
 
 import {
+  MatTabsModule,
   MatSnackBarModule,
   MatMenuModule,
   MatInputModule,
@@ -84,7 +88,12 @@ import { CategoryMenuComponent } from './component/category/categoryMenu/categor
     MatAutocompleteModule,
     MatSortModule, MatTableModule,
     MatPaginatorModule,
+<<<<<<< HEAD
     MatTabsModule
+=======
+    MatTabsModule,
+    HttpClientModule
+>>>>>>> refs/remotes/origin/master!
     ],
   providers: [],
   bootstrap: [AppComponent]

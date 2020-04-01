@@ -27,14 +27,17 @@ export class CategoryService {
     return this.itemsOfCategory.items;
   }
   getItemsCategories() :any[]{
-    this.mockDataCategory.map(category => {
-        if(category.items.length > 0){
-            category.items.map( item =>{
-            this.itemsCategories.push(item);
-            }
-          );
-    }
-    });
+  //   this.mockDataCategory.map(category => {
+  //     if(category.items){
+  //       if(category.items.length > 0){
+  //           category.items.map( item =>{
+  //           this.itemsCategories.push(item);
+  //           }
+  //         );
+  //   }
+  
+  // }
+  //   });
       return this.itemsCategories;
   }
   getCategoriesId():string[]{
