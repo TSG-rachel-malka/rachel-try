@@ -4,9 +4,8 @@ import { Item } from '../../data/models/item.model';
 import itemData from '../../data/jsonFiles/item.json';
 import requestData from '../../data/jsonFiles/request.json';
 import incidentData from '../../data/jsonFiles/incidentFormFields.json';
-
 import { Request } from '../../data/models/request.model'
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http'; 
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
