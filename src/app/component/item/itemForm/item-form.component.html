@@ -11,7 +11,7 @@
                             <input 
                                 #name="ngModel" 
                                 required 
-                                name="{{field.name}}" 
+                                name="{{field.id}}" 
                                 ngModel="" 
                                 matInput 
                                 type="{{field.type}}">
@@ -29,7 +29,7 @@
                                 *ngFor="let food of formField[index].relatedArr" 
                                 value="food.id" 
                                 name="food.name">
-                                 {{food.name}}
+                                 {{food.id}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>                 
