@@ -1,0 +1,22 @@
+[
+    {
+        "id": "123",
+        "email": "malka.weingarten@tsfitsystems.com",
+        "password": "123456"
+    },
+    {
+        "id": "12545",
+        "email": "malka.weingarten1@tsfitsystems.com",
+        "password": "123456"
+    },
+    {
+        "id": "5475",
+        "email": "malka.weingarten2@tsfitsystems.com",
+        "password": "123456"
+    },
+    {
+        "id": "8541",
+        "email": "malka.weingarten3@tsfitsystems.com",
+        "password": "123456"
+    }
+]
