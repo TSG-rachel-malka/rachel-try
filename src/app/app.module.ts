@@ -15,7 +15,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HeaderComponent } from './component/header/header.component';
+import {MatTabsModule} from '@angular/material/tabs';
 import {
+  MatSnackBarModule,
+  MatMenuModule,
   MatInputModule,
   MatCardModule,
   MatButtonModule,
@@ -33,8 +36,11 @@ import {
   MatStepperModule,
   MatGridListModule,
   MatSortModule, 
-  MatTableModule
+  MatTableModule,
+  
+  
 } from "@angular/material";
+import { CategoryMenuComponent } from './component/category/categoryMenu/category-menu.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,8 @@ import {
     HomePageComponent, 
     RequestDelailsComponent,
     SearchComponent,
-    EnumToArrayPipe
+    EnumToArrayPipe,
+    CategoryMenuComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -55,8 +62,11 @@ import {
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     MatSelectModule,
     MatListModule,
     MatExpansionModule,
@@ -72,10 +82,9 @@ import {
     MatCardModule,
     MatSelectModule,
     MatAutocompleteModule,
-    MatFormFieldModule,
     MatSortModule, MatTableModule,
     MatPaginatorModule,
-    HttpClientModule
+    MatTabsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

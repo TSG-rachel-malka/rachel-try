@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Item } from '../../data/models/item.model';
 import itemData from '../../data/jsonFiles/item.json';
 import requestData from '../../data/jsonFiles/request.json';
+import incidentData from '../../data/jsonFiles/incidentFormFields.json';
+
 import { Request } from '../../data/models/request.model'
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http'; 
 import { Router } from '@angular/router';
@@ -128,8 +130,11 @@ this.httpHeaders.append('Authorization', 'Basic cmFjaGVsZTpBYTEyMzQ1NiE=' );
         }
         requestData.push(this.requestDetail);
       } 
-      getSysIdRequest(){
-        return this.requestDetail.sys_id;
-      } 
+    getSysIdRequest(){
+      return this.requestDetail.sys_id;
+    } 
+    getIncidentFormField(){
+      return incidentData;
+    }
   
 }

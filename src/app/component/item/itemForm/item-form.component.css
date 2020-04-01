@@ -6,3 +6,6 @@
 button.mat-raised-button.mat-primary{
     margin-left: 10px;
 }
+mat-form-field{
+    width: 400px;
+}
