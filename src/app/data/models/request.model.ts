@@ -5,7 +5,10 @@ export interface Request {
     description: string;
     img: string;
     create: string;
-    status: number ;
+    status: {
+      value: number;
+      name: string;
+    };
     task_type: string;
     details: any;
   }

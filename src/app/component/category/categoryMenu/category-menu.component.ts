@@ -3,9 +3,9 @@ import { CategoryService } from '../category.service';
 import { Category } from '../../../data/models/category.model';
 
 @Component({
-  selector: 'app-category-memu',
-  templateUrl: './category-memu.component.html',
-  styleUrls: ['./category-memu.component.css']
+  selector: 'app-category-menu',
+  templateUrl: './category-menu.component.html',
+  styleUrls: ['./category-menu.component.css']
 })
 export class CategoryMenuComponent implements OnInit {
   categories:Category[];

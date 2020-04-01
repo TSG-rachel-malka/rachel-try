@@ -3,8 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { RequestsService } from '../../request/request.service';
-import { FormField } from '../../../data/models/formField.model';
-import { MatSnackBar } from '@angular/material';
+//import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-item-form',
@@ -13,7 +12,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class ItemFormComponent implements OnInit {
   selected;
-  formField: FormField[];
+  formField: any;
   item;
   userId;
   itemId: string;
@@ -22,7 +21,7 @@ export class ItemFormComponent implements OnInit {
               private router:Router, 
               public route: ActivatedRoute ,
               private requestsService :RequestsService,
-              private _snackBar: MatSnackBar ) {}
+              ) {}
 
   ngOnInit() {
     this.userId = this.itemService.userId;
@@ -38,10 +37,12 @@ export class ItemFormComponent implements OnInit {
     ); 
     if(this.itemId){
       this.item = this.itemService.getItemForm(this.itemId);
+      this.formField = this.itemService.getItemFormField(this.itemId);
+
     }
     else if(this.createIncident) {
-      this.item = this.itemService.getIncidentItem();
-      this.formField = this.itemService.getIncidentFormField(); 
+      this.item = this.itemService.getIncidentItem(); //name and id
+      this.formField = this.itemService.getIncidentFormField(); // fields
     }
   }
 

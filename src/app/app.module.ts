@@ -13,11 +13,11 @@ import { RequestDelailsComponent } from './component/request/requestDelails/requ
 import { SearchComponent } from './component/homePage/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './component/header/header.component';
-import { HttpClientModule } from '@angular/common/http';
-import {MatTabsModule} from '@angular/material/tabs';
 
 import {
+  MatTabsModule,
   MatSnackBarModule,
   MatMenuModule,
   MatInputModule,
@@ -42,7 +42,6 @@ import {
   
 } from "@angular/material";
 import { CategoryMenuComponent } from './component/category/categoryMenu/category-menu.component';
-
 
 @NgModule({
   declarations: [
@@ -86,7 +85,8 @@ import { CategoryMenuComponent } from './component/category/categoryMenu/categor
     MatAutocompleteModule,
     MatSortModule, MatTableModule,
     MatPaginatorModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

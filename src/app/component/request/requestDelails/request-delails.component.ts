@@ -1,6 +1,5 @@
 import { Status } from '../../../data/enum/status.enum';
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../../category/category.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { RequestsService } from '../request.service';
 
@@ -15,7 +14,7 @@ export class RequestDelailsComponent implements OnInit{
   isLinear = true;
   statusRequest = Status;
   requestDetail:any;
-  
+  currentStatus: number;
   constructor(private requestsService :RequestsService, public route: ActivatedRoute) { }
   ngOnInit() {
     this.route.params.subscribe(
@@ -26,5 +25,6 @@ export class RequestDelailsComponent implements OnInit{
       }
     ); 
     this.requestDetail = this.requestsService.getRequestDetail(this.idRequest); 
+    this.currentStatus = this.requestDetail.status.value;
   }
 }

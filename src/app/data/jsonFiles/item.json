@@ -5,12 +5,12 @@
     "description": "service IT description",
     "fields":[
         {
-        "sys_id_field": "1.1.1",
+        "id": "1.1.1",
         "name":"name1",
         "type": "text"
         },
         {
-            "sys_id_field": "1.1.2",
+            "id": "1.1.2",
             "name":"type1",
             "type": "text"
         }  
@@ -23,12 +23,12 @@
     "description": "incident IT description",
     "fields":[
         {
-        "sys_id_field": "1.2.1",
+        "id": "1.2.1",
         "name":"name2",
         "type": "number"
         },
         {
-            "sys_id_field": "1.2.2",
+            "id": "1.2.2",
             "name":"type2",
             "type": "number"
         }  
@@ -41,12 +41,12 @@
     "description": "התקנת תוכנה בשרתים description",
     "fields":[
         {
-        "sys_id_field": "2.2.1",
+        "id": "2.2.1",
         "name":"name22",
         "type": "text"
         },
         {
-            "sys_id_field": "2.2.2",
+            "id": "2.2.2",
             "name":"type22",
             "type": "text"
         }  
