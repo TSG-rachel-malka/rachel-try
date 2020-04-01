@@ -91,9 +91,9 @@ export class CategoryService {
     return this.statusOptionsRequest;
   }
   getItemsCategories() :any[]{
-    this.mockDataCategory.map(category => {
+    this.mockDataCategory.forEach(category => {
       if(category.items.length > 0){
-          category.items.map( item =>{
+          category.items.forEach( item =>{
           this.itemsCategories.push(item);
           }
         );

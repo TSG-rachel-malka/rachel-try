@@ -1,3 +1,4 @@
+import { Incident } from './../../data/models/incident.model';
 import { Injectable } from '@angular/core';
 import { Item } from '../../data/models/item.model';
 import itemData from '../../data/jsonFiles/item.json';
@@ -30,17 +31,7 @@ export class ItemService {
       }
       sendIncident(incidentVariables: string){
         /*
-        {headers: new HttpHeaders({
-          'Content-Type':'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': "http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer",
-          'Access-Control-Allow-Credentials': 'true',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Origin',
-          'X-User-Token': '06f26f9249b30010c99245fe5483bc1dff069b6327202477a702b7a028b9f2e294462060',
-          'Authorization': 'Basic UkVTVDoxMjM0NTY=',
-          'Origin': 'http://localhost:4200',
-          'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
-        }
+        
         */         
        const httpOptions = {  
         headers: new HttpHeaders({  
@@ -54,13 +45,25 @@ export class ItemService {
           'Accept': 'application/json',
           'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
           'origin-when-cross-origin': 'http://presnowka.westeurope.cloudapp.azure.com:16001',
-          'Access-Control-Request-Method': 'POST'
-
+          'Access-Control-Request-Method': 'POST',
+          'access-control-allow-credentials': 'access-control-allow-headers,access-control-allow-origin,authorization,content-type,user-agent,x-user-token'
         }) 
       };
-       this.http.post<any>("http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer",
+      
+       this.http.post<{ message: string; incident: Incident }>("http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer",
         {"variables":{"caller_id":"a8f98bb0eb32010045e1a5115206fe3a","subcategory":"test","u_environment":"221f79b7c6112284005d646b76ab978c","u_equipment_type":"fc58735249f30010c99245fe5483bcb1","u_equipment_name":"c5efafda49b30010c99245fe5483bcf4","short_description":"Test"}}
-        ,{headers: httpOptions.headers}).subscribe((res) => {
+        ,{headers: new HttpHeaders({
+          'Content-Type':'application/json;charset=UTF-8',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': "*",
+          'Access-Control-Allow-Credentials': 'true',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Origin',
+          'X-User-Token': '06f26f9249b30010c99245fe5483bc1dff069b6327202477a702b7a028b9f2e294462060',
+          'Authorization': 'Basic UkVTVDoxMjM0NTY=',
+          'Origin': 'http://localhost:4200',
+          'User-Agent':'PostmanRuntime/7.24.0',
+          'Access-Control-Request-Method': 'POST'
+        })}).subscribe((res) => {
           /*if(res.status == 200){
             requestData.push(this.requestDetail);
           }*/
@@ -72,7 +75,9 @@ export class ItemService {
          });
       }
     onSubmitItem(item:any,value:any){
+      
      debugger;
+     this.sendIncident(item);
      /*this.httpHeaders.append('Access-Control-Allow-Origin', '*');
       this.httpHeaders.append('Access-Control-Allow-Credentials','true');
       this.httpHeaders.append('Accept','application/json');
