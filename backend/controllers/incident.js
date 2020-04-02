@@ -14,7 +14,7 @@ exports.createIncident =  (req, res, next) => {
       }
   }
   request(options, function (err, response, body){
-     if(response.statusCode == 200){
+    if(res.statusCode == 200){
       res.send(response);
      }
      else {

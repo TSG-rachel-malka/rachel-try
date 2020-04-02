@@ -64,12 +64,10 @@ export class CategoryService {
     return this.requestDetail.sys_id;
   }
   getRequestData(){
-    debugger;
     this.mockDataRequest = requestData;
     return this.mockDataRequest;
   }
   getRequestDetail(id){
-    debugger;
     const try1 = requestData.find(request => request.sys_id === id);
     return try1;
      

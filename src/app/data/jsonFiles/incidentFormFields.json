@@ -1,38 +1,31 @@
 [{  
     "id":"caller_id",
     "name": "Caller",
-    "type":"select",
-    "relatedArr":[{"id": "111111","name":"rachel"},{"id":"2222222","name": "malka"}]
+    "type":"text"
   },
   {  
     "id":"subcategory",
     "name": "Subcategory",
-    "type":"select",
-    "relatedArr":[{"id": "111111","name":"test"},{"id":"2222222","name": "test2"}]
+    "type":"text"
   },
   {  
     "id":"u_environment",
     "name": "Environment",
-    "type":"select",
-    "relatedArr":[{"id": "111111","name":"HR"},{"id":"2222222","name": "IT"}]
+    "type":"text"
   },
   {  
     "id":"u_equipment_type",
     "name": "Equipment type",
-    "type":"select",
-    "relatedArr":[{"id": "111111","name":"Server"},{"id":"2222222","name": "Network"},{"id":"2222222","name": "Storage"}]
+    "type":"text"
   },
   {  
     "id":"u_equipment_name",
     "name": "Equipment name",
-    "type":"number",
-    "relatedArr":[]
+    "type":"number"
   },
   {  
     "id":"short_description",
     "name": "Incident description",
-    "type":"string",
-    "relatedArr":[]
+    "type":"string"
   }
   ]
- 

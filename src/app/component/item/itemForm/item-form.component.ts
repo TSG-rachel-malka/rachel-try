@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { ItemService } from '../item.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -50,16 +51,15 @@ export class ItemFormComponent implements OnInit {
     this.router.navigate(["items" , this.itemId]);
   }  
   onSubmit(form: NgForm){
-    /*if(form.invalid)
-      return;*/
+    if(form.invalid)
+      return;
     // this._snackBar.open(this.itemId, "create", {
     //       duration: 1000
     //     }); 
-    console.log(form);
-    debugger;
     this.itemService.onSubmitItem(this.item,form.value);
     const idRequest = this.itemService.getSysIdRequest();
     this.router.navigate(["myRequests/456789/requestDetail", idRequest ]); // mock data
     this.requestsService.requestCount();
   }
+  
 }

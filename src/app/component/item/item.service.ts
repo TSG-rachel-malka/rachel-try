@@ -5,7 +5,7 @@ import itemData from '../../data/jsonFiles/item.json';
 import requestData from '../../data/jsonFiles/request.json';
 import incidentData from '../../data/jsonFiles/incidentFormFields.json';
 import { Request } from '../../data/models/request.model'
-import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { HttpClient} from '@angular/common/http'; 
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -17,7 +17,6 @@ export class ItemService {
     itemClicked: Item;
     sys_idRequest:any = 0;
     mockDataItem = itemData;
-    httpHeaders = new HttpHeaders();
     constructor(private http: HttpClient,  private router: Router) {}
     getIncidentItem(): Item {
         return this.mockDataItem.find(item => item.name == 'incident IT');
@@ -30,30 +29,33 @@ export class ItemService {
       }
       
     onSubmitItem(item:any,value:any){
-      
-      const headers = this.httpHeaders;
-
-        var id = 12; // mock data
-        id++;
-        this.sys_idRequest++;
         const date = ((new Date()).toLocaleDateString()).toString();
         var taskType: string;
         if(item.name == 'incident IT'){
           taskType = 'incident';
-          const jsonTest = {"variables":{"caller_id":"9c428c5458330010c992d650e224fddb","subcategory":"test","u_environment":"221f79b7c6112284005d646b76ab978c","u_equipment_type":"fc58735249f30010c99245fe5483bcb1","u_equipment_name":"c5efafda49b30010c99245fe5483bcf4","short_description":"MALKA TEST"}};
+          value = JSON.stringify(value);
+          value = JSON.parse(value);
+          const jsonFields = {"variables":{}};
+          jsonFields['variables'] = value;
           this.http
           .post<any>(
             'http://localhost:3000/api/incident',
-            jsonTest
+            jsonFields
           )
-          .subscribe(responseData => {
-            debugger;
-              this.router.navigate(["/"]);
+          .subscribe(responseData => {      
+            if(responseData.body){
+              const resBody = responseData.body.result;
+              this.requestDetail = {'user_id': this.userId,'sys_id': resBody.sys_id, 'name': item.name, 'description': item.description, 'img': item.img,
+                                    'create': date, 'status':{value:0, name:'Create'}, 'task_type': resBody.table, 'details': []};
+              requestData.push(this.requestDetail);
+            }
+              this.router.navigate(["/myRequests/456789/requestDetail/"+ this.requestDetail.sys_id]);
           });
         } else {
-          taskType = 'reqest';
+          taskType = 'request';
+          requestData.push(this.requestDetail);
         }
-        requestData.push(this.requestDetail);
+        
      
         
       } 

@@ -36,14 +36,12 @@ export class RequestListComponent implements OnInit {
               }
   
   ngOnInit() {
-    debugger;
     this.route.params.subscribe(
       (params: Params) => {
         this.userId = +params['userId'];
       }
     );
     this.myRequests = this.myRequestsService.getRequests(this.userId);
-    debugger;
     this.myRequestSub = this.myRequestsService.myRequestsUpdated
       .subscribe((requestData:{request: Request[], requestCount: number}) => {
           this.myRequests = requestData.request;
