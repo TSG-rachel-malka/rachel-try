@@ -19,7 +19,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class RequestListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: false, read: true}) paginator: MatPaginator;
-  displayedColumns: string[] = ['name', 'description', 'status', 'create', 'task_type'];
+  displayedColumns: string[] = ['name', 'number', 'description', 'status', 'create', 'task_type'];
   statusRequest = Status;
   requestDetail:any;
   myRequests;

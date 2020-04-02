@@ -45,7 +45,7 @@ export class ItemService {
           .subscribe(responseData => {      
             if(responseData.body){
               const resBody = responseData.body.result;
-              this.requestDetail = {'user_id': this.userId,'sys_id': resBody.sys_id, 'name': item.name, 'description': item.description, 'img': item.img,
+              this.requestDetail = {'user_id': this.userId,'sys_id': resBody.sys_id, 'number': resBody.number, 'name': item.name, 'description': item.description, 'img': item.img,
                                     'create': date, 'status':{value:0, name:'Create'}, 'task_type': resBody.table, 'details': []};
               requestData.push(this.requestDetail);
             }

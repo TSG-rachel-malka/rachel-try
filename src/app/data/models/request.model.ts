@@ -1,6 +1,7 @@
 export interface Request {
     user_id: string;
     sys_id: string;
+    number: string;
     name: string;
     description: string;
     img: string;
