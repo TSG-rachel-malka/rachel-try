@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'item/:itemId' , component: ItemFormComponent },
   { path: 'createIncident' , component: ItemFormComponent },
   { path: 'myRequests/:userId', component: RequestListComponent },
-  { path: 'myRequests/456789/requestDetail/:idRequest' , component: RequestDelailsComponent },
-  { path: "auth", loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}
+  { path: 'myRequests/456789/requestDetail/:idRequest' , component: RequestDelailsComponent }
+ // { path: "auth", loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}
 ];
 
 @NgModule({

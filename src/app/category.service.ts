@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import categoryData from '../app/data/jsonFiles/categories.json';
 import itemData from '../app/data/jsonFiles/item.json';
-import requestData from './jsonFiles/request.json';
+import requestData from './data/jsonFiles/request.json';
 import { Request } from './data/models/request.model'
 import { Category } from './data/models/category.model';
 import { Item } from './data/models/item.model';

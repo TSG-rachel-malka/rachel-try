@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 //const Post = require('./models/post');
 
-const itemRoutes = require('./routes/item');
-//const userRoutes = require('./routes/user');
+const incidentRoute = require('./routes/incident');
 
 const app = express();
 
@@ -37,11 +36,8 @@ app.use((req, res, next) => {
  
     next();
   });
+console.log('Server is runing');
 
-//app.use("/api/item", itemRoutes);
+app.use("/api/incident", incidentRoute);
 
-//app.use("/api/user", userRoutes);
-console.log('HIIII');
-
-app.use("/api/item", itemRoutes);
 module.exports = app;

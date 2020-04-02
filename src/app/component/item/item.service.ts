@@ -30,85 +30,8 @@ export class ItemService {
       }
       
     onSubmitItem(item:any,value:any){
-      debugger;
-      const jsonTest = '{"variables":{"caller_id":"a8f98bb0eb32010045e1a5115206fe3a","subcategory":"test","u_environment":"221f79b7c6112284005d646b76ab978c","u_equipment_type":"fc58735249f30010c99245fe5483bcb1","u_equipment_name":"c5efafda49b30010c99245fe5483bcf4","short_description":"Test"}';
-      this.http
-      .post<any>(
-        'http://localhost:3000/api/item',
-        jsonTest
-      )
-      .subscribe(responseData => {
-        debugger;
-          this.router.navigate(["/"]);
-      });
-  }
-      //this.sendRequest();
-      // this.httpHeaders.append('Access-Control-Allow-Origin', '*');
-      // this.httpHeaders.append('Access-Control-Allow-Origin', 'http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer');
-      // this.httpHeaders.append('Access-Control-Allow-Credentials','true');
-      // this.httpHeaders.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-      // this.httpHeaders.append('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization')
-      // this.httpHeaders.append('Accept','application/json');
-      // this.httpHeaders.append('Content-Type','application/json');
-      // this.httpHeaders.append('User-Agent','PostmanRuntime/7.24.0');
-      // this.httpHeaders.append('X-UserToken','3a0ff83ae9370010c992087d8fea8f16cbd4f5a4846e06f94ac6d8861d78d2d289282098');
-      // this.httpHeaders.append('Authorization','Basic cmFjaGVsZTpBYTEyMzQ1NiE=');
-      // this.httpHeaders.append('Origin','http://localhost:4200');
-
-    //this.httpHeaders.append('Access-Control-Allow-Origin', '*');
-    
- /* const head =  {head : new HttpHeaders({
-  'Content-Type':'application/json',
-  'Accept': 'application/json',
-  'Access-Control-Allow-Origin': "http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer",
-  'Access-Control-Allow-Credentials': 'true',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization, Origin',
-  'X-User-Token': '06f26f9249b30010c99245fe5483bc1dff069b6327202477a702b7a028b9f2e294462060',
-  'Authorization': 'Basic cmFjaGVsZTpBYTEyMzQ1NiE=',
-  'Origin': 'http://localhost:4200',
-  'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
-  'origin-when-cross-origin': 'http://localhost:4200',
-})}*/
-
-    //his.httpHeaders.append('Access-Control-Allow-Methods','GET, POST, OPTIONS');
-    //this.httpHeaders.append('X-Requested-With', 'XMLHttpRequest');
-    /*this.httpHeaders.append('Access-Control-Allow-Origin', 'http://presnowka.westeurope.cloudapp.azure.com:16001 | *');
-    this.httpHeaders.append('Access-Control-Allow-Credentials','true');
-    this.httpHeaders.append('Access-Control-Allow-Methods',' GET, POST, OPTIONS');
-    this.httpHeaders.append("Access-Control-Allow-Headers", 'X-PINGOTHER, Content-Type, Authorization, Origin, X-My-Custom-Header, X-Another-Custom-Header');
-    this.httpHeaders.append('Content-Type', 'application/json');
-    this.httpHeaders.append('Accept', 'application/json');
-    this.httpHeaders.append('User-Agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36');
-    this.httpHeaders.append('X-UserToken','3a0ff83ae9370010c992087d8fea8f16cbd4f5a4846e06f94ac6d8861d78d2d289282098');
-    this.httpHeaders.append('Authorization', 'Basic cmFjaGVsZTpBYTEyMzQ1NiE=');
-    this.httpHeaders.append('Origin','http://localhost:4200');
-
-    // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    // headers.append('Access-Control-Allow-Credentials', 'true');
-  
-  
-    //  this.httpHeaders.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    //  this.httpHeaders.append('Access-Control-Allow-Credentials','true');
-    //  this.httpHeaders.append('Accept','application/json');
-    //  this.httpHeaders.append('X-UserToken','3a0ff83ae9370010c992087d8fea8f16cbd4f5a4846e06f94ac6d8861d78d2d289282098');
-    //  this.httpHeaders.append('Content-Type','application/json');
-    //  this.httpHeaders.append('User-Agent','PostmanRuntime/7.24.0');
-    //  this.httpHeaders.append('Authorization','Basic cmFjaGVsZTpBYTEyMzQ1NiE=');
-    //  this.httpHeaders.append('Origin','http://localhost:4200');
-
-
-      // this.httpHeaders.append('Access-Control-Allow-Origin', 'http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer');
-      // this.httpHeaders.append('Access-Control-Allow-Credentials','true');
-      //this.httpHeaders.append('Access-Control-Allow-Methods',' GET, POST, OPTIONS');
-      //this.httpHeaders.append('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
-      // this.httpHeaders.append('Content-Type', 'application/json');
-      // this.httpHeaders.append('Accept', 'application/json');
-      // this.httpHeaders.append('X-UserToken','3a0ff83ae9370010c992087d8fea8f16cbd4f5a4846e06f94ac6d8861d78d2d289282098');
-      // this.httpHeaders.append('User-Agent','PostmanRuntime/7.24.0');
-      // this.httpHeaders.append('Authorization', 'Basic cmFjaGVsZTpBYTEyMzQ1NiE=');
-      // this.httpHeaders.append('Origin','http://localhost:4200');
-
-      /*const headers = this.httpHeaders;
+      
+      const headers = this.httpHeaders;
 
         var id = 12; // mock data
         id++;
@@ -117,8 +40,16 @@ export class ItemService {
         var taskType: string;
         if(item.name == 'incident IT'){
           taskType = 'incident';
-              debugger;
-              this.sendIncident;
+          const jsonTest = {"variables":{"caller_id":"9c428c5458330010c992d650e224fddb","subcategory":"test","u_environment":"221f79b7c6112284005d646b76ab978c","u_equipment_type":"fc58735249f30010c99245fe5483bcb1","u_equipment_name":"c5efafda49b30010c99245fe5483bcf4","short_description":"MALKA TEST"}};
+          this.http
+          .post<any>(
+            'http://localhost:3000/api/incident',
+            jsonTest
+          )
+          .subscribe(responseData => {
+            debugger;
+              this.router.navigate(["/"]);
+          });
         } else {
           taskType = 'reqest';
         }
@@ -126,27 +57,7 @@ export class ItemService {
      
         
       } 
-      sendIncident(){
-        this.http.post<any>("http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer",
-        JSON.stringify({"variables":{"caller_id":"a8f98bb0eb32010045e1a5115206fe3a","subcategory":"test","u_environment":"221f79b7c6112284005d646b76ab978c","u_equipment_type":"fc58735249f30010c99245fe5483bcb1","u_equipment_name":"c5efafda49b30010c99245fe5483bcf4","short_description":"Test"}})
-        ,{headers: new HttpHeaders({
-          'Access-Control-Allow-Origin': 'http://presnowka.westeurope.cloudapp.azure.com:16001/api/sn_sc/servicecatalog/items/1b53e3d249b30010c99245fe5483bcd2/submit_producer',
-          'Access-Control-Allow-Credentials':'true',
-          'Access-Control-Allow-Methods':' GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'X-UserToken':'3a0ff83ae9370010c992087d8fea8f16cbd4f5a4846e06f94ac6d8861d78d2d289282098',
-          'Authorization': 'Basic cmFjaGVsZTpBYTEyMzQ1NiE=',
-          'Origin':'http://localhost:4200'
-        })}).subscribe((res) => {
-          debugger;
-          console.log(res);
-        }, error => {
-          debugger;
-          console.log(error);
-         })
-      }*/
+
     getSysIdRequest(){
       return this.requestDetail.sys_id;
     } 
