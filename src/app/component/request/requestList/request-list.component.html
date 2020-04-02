@@ -2,11 +2,12 @@
   <mat-card-header>
     <mat-card-title>My Requests</mat-card-title>
   </mat-card-header>
+  <ng-container *ngIf="myRequests">
     <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="myRequests" class="mat-elevation-z8">
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.number}} </mat-cell>
       </ng-container>   
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
@@ -14,20 +15,22 @@
       </ng-container>
       <ng-container matColumnDef="status">
         <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.status.name}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="task_type">
         <mat-header-cell *matHeaderCellDef> Task Type </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.task_type}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.sys_class_name}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="create">
         <mat-header-cell *matHeaderCellDef> Create </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.create}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.opened_at}} </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="expandRequest(row.sys_id)"></mat-row>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
+</ng-container>
 </mat-card>
+
 <!--(page)="onChangePage($event)" -->
