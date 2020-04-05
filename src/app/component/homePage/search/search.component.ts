@@ -30,6 +30,7 @@ export class SearchComponent implements OnInit{
   }
 
   private _filterItems(value: string): any[]{
+    debugger;
     if(!value){
        return;
     }
@@ -38,10 +39,10 @@ export class SearchComponent implements OnInit{
     this.categories.filter(category => category.name.toLowerCase().includes(filterValue));
     categoriesId = this.categories.map(category => category.sys_id);
      // || categoriesId.indexOf(item.category_id) > 1
-      return this.itemsCategories.filter(item => item.name.toLowerCase().includes(filterValue)
-    );
+      return this.itemsCategories.filter(item => item.name.toLowerCase().includes(filterValue));
   }
   onSelectionChanged(event) {
+    debugger;
     if(event.option && event.option.id){
       const item_id: number = +event.option.id;
       if(item_id){
