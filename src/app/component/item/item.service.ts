@@ -7,6 +7,7 @@ import incidentData from '../../data/jsonFiles/incidentFormFields.json';
 import { Request } from '../../data/models/request.model'
 import { HttpClient} from '@angular/common/http'; 
 import { Router } from '@angular/router';
+import { RequestsService } from '../request/request.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ItemService {
     itemClicked: Item;
     sys_idRequest:any = 0;
     mockDataItem = itemData;
-    constructor(private http: HttpClient,  private router: Router) {}
+    constructor(private http: HttpClient,  private router: Router, private requestService: RequestsService) {}
     getIncidentItem(): Item {
         return this.mockDataItem.find(item => item.name == 'incident IT');
     }  
@@ -29,6 +30,7 @@ export class ItemService {
       }
       
     onSubmitItem(item:any,value:any){
+      debugger;
         const date = ((new Date()).toLocaleDateString()).toString();
         var taskType: string;
         if(item.name == 'incident IT'){
@@ -47,7 +49,8 @@ export class ItemService {
               const resBody = responseData.body.result;
               this.requestDetail = {'user_id': this.userId,'sys_id': resBody.sys_id, 'number': resBody.number, 'name': item.name, 'description': item.description, 'img': item.img,
                                     'create': date, 'status':{value:0, name:'Create'}, 'task_type': resBody.table, 'details': []};
-              requestData.push(this.requestDetail);
+              //requestData.push(this.requestDetail);
+             this.requestService.addRequest(this.requestDetail);
             }
               this.router.navigate(["/myRequests/456789/requestDetail/"+ this.requestDetail.sys_id]);
           });

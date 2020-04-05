@@ -42,18 +42,18 @@ export class RequestListComponent implements OnInit {
         this.userId = +params['userId'];
       }
     );
-   this.myRequestsService.getRequests().subscribe( data =>{ 
-      this.myRequests = data;
-    });
-    // this.myRequestSub = this.myRequestsService.myRequestsUpdated
-    //   .subscribe((requestData:{request: Request[], requestCount: number}) => {
-    //       this.myRequests = requestData.request;
-    //       this.requestCount = requestData.requestCount;
-    //     }
-    //   );
-    //this.myRequestSub = this.myRequestsService.getRequestsUpdated().subscribe();
-    //this.dataSource.data =  this.myRequests;
-    //this.dataSource.paginator = this.paginator;
+   this.myRequestsService.getRequests();
+   debugger;
+
+   this.myRequestSub = this.myRequestsService.getRequestsUpdated()
+   .subscribe((requestData:{request: any[], requestCount: number}) => {
+     debugger;
+     this.myRequests = requestData.request;
+   });
+  
+    this.myRequestSub = this.myRequestsService.getRequestsUpdated().subscribe();
+    this.dataSource.data =  this.myRequests;
+    this.dataSource.paginator = this.paginator;
   }
 
   expandRequest(requestId){
