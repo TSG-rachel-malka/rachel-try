@@ -17,7 +17,7 @@
         <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="status">
+      <ng-container matColumnDef="state">
         <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{statusRequest[element.state]}} </mat-cell>
       </ng-container>
