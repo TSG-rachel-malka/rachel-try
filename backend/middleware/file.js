@@ -1,9 +1,13 @@
 const multer = require("multer");
 
 const MIME_TYPE_MAP = {
-    'image/png': 'png',
-    'image/jpeg': 'jpeg',
-    'image/jpg': 'jpg'
+    'attachment/png': 'png',
+    'attachment/jpeg': 'jpeg',
+    'attachment/jpg': 'jpg',
+    'attachment/pdf': 'pdf',
+    'attachment/mp3': 'mp3',
+    'attachment/mp4': 'mp4',
+    'attachment/txt': 'txt'
   }
   
   const storage = multer.diskStorage({
@@ -13,7 +17,7 @@ const MIME_TYPE_MAP = {
       if(isValid){
         error = null;
       }
-      cb(error, "backend/images");
+      cb(error, "backend/attachment");
     },
     filename: (req, file, cb) => {
       const name = file.originalname.toLowerCase().split(' ').join('-');
