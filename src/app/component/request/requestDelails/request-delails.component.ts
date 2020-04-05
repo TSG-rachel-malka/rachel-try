@@ -24,7 +24,8 @@ export class RequestDelailsComponent implements OnInit{
         }
       }
     ); 
+    debugger;
     this.requestDetail = this.requestsService.getRequestDetail(this.idRequest); 
-    this.currentStatus = this.requestDetail.status.value;
+    //this.currentStatus = this.requestDetail.status.value;
   }
 }

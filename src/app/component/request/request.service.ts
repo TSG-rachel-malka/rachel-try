@@ -1,6 +1,6 @@
 import { Request } from '../../data/models/request.model';
 import { Injectable } from '@angular/core';
-import requestData from '../../data/jsonFiles/request.json';
+// import requestData from '../../data/jsonFiles/request.json';
 
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,8 +14,9 @@ export class RequestsService {
     { id: 1, value:'in progress'},
     { id: 2, value:'canceled'},
     { id: 3, value:'closed'}];
-  mockDataRequest = requestData;
-  myRequests = new Subject<any>();
+  // mockDataRequest = requestData;
+  myRequests: any[];
+  itemCreated:any;
   myRequestsUpdated = new Subject<{request: Request[], requestCount:number}>();
   counter = 0 ;
   requestCounter = new Subject<number>(); 
@@ -28,30 +29,35 @@ export class RequestsService {
           .get<any>(
             'http://localhost:3000/api/incident')
           .subscribe(responseData => {
-            this.myRequests.next(responseData.body.result);
-            //this.counter = responseData.body.result.length;
+            this.myRequests = responseData.body.result;
+            this.myRequestsUpdated.next({request:this.myRequests,requestCount:4});
           });
-          return this.myRequests;
         } 
   
-  // getRequestsUpdated(){
-  //   return this.myRequestsUpdated.asObservable();
-  // }
+  getRequestsUpdated(){
+    return this.myRequestsUpdated.asObservable();
+  }
 
   // getRequestData(){
-  //   this.mockDataRequest = requestData;
-  //   return this.mockDataRequest;
+  //   return this.myRequests;
   // }
+  addRequest(item){
+   this.itemCreated = item; //mock data
+  //this.myRequestsUpdated.next({request:item,requestCount:1});
+  }
   getRequestDetail(id){
-    //const myReq = this.myRequests;
-    //return myReq.find(request => request.sys_id === id); 
+    const myReq = this.myRequests;
+    if(myReq.find(request => request.sys_id === id))
+      return myReq.find(request => request.sys_id === id); 
+    return this.itemCreated;
    } 
 
   getRequestCounter(){
     return this.requestCounter;
  }
   getRequestsCounterInit(userId) {
-     this.counter = (requestData.filter(request => request.user_id.toLowerCase().indexOf(userId) === 0)).length;
+     this.counter = 3;
+    //  (requestData.filter(request => request.user_id.toLowerCase().indexOf(userId) === 0)).length;
     return this.counter;  
   }
   getStatusOptionsRequest(){

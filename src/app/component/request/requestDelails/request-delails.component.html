@@ -2,10 +2,10 @@
     <mat-list role="list">
     <mat-list-item role="listitem"><b>number :</b> {{requestDetail.number}}</mat-list-item>
     <mat-list-item role="listitem"><b>description :</b>{{requestDetail.description}}</mat-list-item>
-    <mat-list-item role="listitem"><b>create :</b> {{requestDetail.create}}</mat-list-item>
+    <mat-list-item role="listitem"><b>create :</b> {{requestDetail.sys_created_on}}</mat-list-item>
     <mat-list-item role="listitem" *ngFor="let field of requestDetail.details | keyvalue"><b>{{field.key}} :</b> {{field.value}}</mat-list-item>
     </mat-list>
-    <mat-horizontal-stepper linear [selectedIndex]="requestDetail.status.value" #stepper>
+    <mat-horizontal-stepper linear [selectedIndex]="requestDetail.state" #stepper>
     <ng-container *ngFor="let status of statusRequest | enumToArray">
         <ng-template matStepperIcon="home">
                 <mat-icon>home</mat-icon>
