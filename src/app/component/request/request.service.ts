@@ -1,3 +1,4 @@
+import { Request } from './../../data/models/request.model';
 import { Request } from '../../data/models/request.model';
 import { Injectable } from '@angular/core';
 import requestData from '../../data/jsonFiles/request.json';
@@ -57,7 +58,7 @@ export class RequestsService {
   getStatusOptionsRequest(){
     return this.statusOptionsRequest;
   }
-requestCount(){
+  requestCount(){
     this.counter++;
     this.requestCounter.next(this.counter);
   }   
