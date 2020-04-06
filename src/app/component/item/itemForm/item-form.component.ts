@@ -58,7 +58,7 @@ export class ItemFormComponent implements OnInit {
     //     }); 
     this.itemService.onSubmitItem(this.item,form.value);
     const idRequest = this.itemService.getSysIdRequest();
-    this.router.navigate(["myRequests/456789/requestDetail", idRequest ]); // mock data
+  //  this.router.navigate(["myRequests/456789/requestDetail", idRequest ]); // mock data
     this.requestsService.requestCount();
   }
   
