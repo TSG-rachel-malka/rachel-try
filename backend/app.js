@@ -8,8 +8,8 @@ const incidentRoute = require('./routes/incident');
 
 const app = express();
 
-const mariadb = require('mariadb');
-const pool = mariadb.createPool({
+//const mariadb = require('mariadb');
+/*const pool = mariadb.createPool({
      host: 'mydb.com', 
      user:'myUser', 
      password: 'myPassword',
@@ -35,7 +35,7 @@ async function asyncFunction() {
     console.log(cnn);
     return conn.end();}
   }
-}
+}*/
 /*mongoose.connect("mongodb+srv://malka:"+
                   process.env.MONGO_ATLAS_PW +
                   "@cluster0-bik5o.mongodb.net/test"
